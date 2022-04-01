@@ -1,0 +1,54 @@
+{
+  "name": "janjiku-id",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@react-google-maps/api": "^2.1.1",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "axios": "^0.21.1",
+    "google-maps-react": "^2.0.6",
+    "html-webpack-plugin": "^5.3.1",
+    "i18next": "^19.9.2",
+    "i18next-browser-languagedetector": "^6.0.1",
+    "i18next-http-backend": "^1.1.1",
+    "i18next-xhr-backend": "^3.2.2",
+    "react": "^16.0.0",
+    "react-countdown": "^2.3.1",
+    "react-dom": "^17.0.1",
+    "react-i18next": "^11.8.10",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "4.0.3",
+    "uuid": "^8.3.2",
+    "web-vitals": "^1.0.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "rm -rf build/ && react-scripts build",
+    "build:prod": "rm -rf build/ && react-scripts build && cp .htaccess build/ && zip -r build.zip build/",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "webpack-cli": "^4.5.0"
+  }
+}
