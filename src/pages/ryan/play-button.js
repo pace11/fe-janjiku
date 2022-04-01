@@ -24,6 +24,9 @@ export default function PlayButton({ isPlay, onPaused }) {
                         margin-left: 5px;
                         font-size: 14px;
                     }
+                    .sound-play span:hover {
+                        color: red;
+                    }
                     .sound-play span i {
                         font-size: 14px;
                     }

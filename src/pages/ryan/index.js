@@ -3,11 +3,11 @@ import CountDown from "../../components/countdown";
 import Card from "../../components/card-bank";
 import Comment from "./comment-section";
 import PlayButton from "./play-button";
-import { useQuery } from "../../utils"
+import { useQuery } from "../../utils";
 import audio from "../../sound/ada_untukmu.mp3";
 
 export default function Ryan() {
-  const query = useQuery()
+  const query = useQuery();
   const [show, setShow] = useState(true);
   const [music, setMusic] = useState({
     prepare: new Audio(audio),
@@ -108,7 +108,7 @@ export default function Ryan() {
                     <p className="desc-1">
                       Maha suci Allah yang telah menciptakan makhluk-Nya
                       berpasang-pasangan. Dengan memohon Rahmat dan Ridho Allah
-                      SWT, kami bermaksud menyelenggarakan Resepsi Pernikahan
+                      SWT, kami bermaksud menyelenggarakan Pernikahan
                       Putra-Putri Kami:
                     </p>
                     <img
@@ -117,13 +117,16 @@ export default function Ryan() {
                       alt=""
                     />
                     <p className="text-male">
-                      Sri Fajar Riantri Alvani
+                      Sri Fajar Riantri Alvani, S.T
+                      <br />
+                      <span>"Riantri"</span>
                       <br />
                       <span>Putri dari Bapak H. Sariban & Ibu Hj. Martini</span>
                     </p>
                     <p className="and">&</p>
                     <p className="text-female">
-                      Muhammad Iriansyah Putra Pratama <br />
+                      Muhammad Iriansyah Putra Pratama, S.T <br />
+                      <span>"Ryan"</span><br />
                       <span>
                         Putra dari Bapak Nasiman & Ibu Iriani Rahanyamtel
                       </span>
@@ -155,32 +158,53 @@ export default function Ryan() {
                     <p className="text-2">Acara Pernikahan</p>
                     <div className="col-md-6">
                       <div className="row box-schedule">
-                        <div className="col-md-6">
-                          <h4 className="schedule-text">AKAD</h4>
-                          <p>
-                            <i className="far fa-clock"></i> 08:00 WIT - Selesai{" "}
-                            <br />
-                            <i className="far fa-calendar-alt"></i> 6 Mei 2022
-                          </p>
-                          <h5>Masjid Agung Al Aqsha Sentani</h5>
-                          <p className="place-address">
-                            Jl. Raya Sentani, Sentani Kota, Sentani, Sentani
-                            Kota, Kec. Sentani, Kabupaten Jayapura, Papua 99359
-                          </p>
-                        </div>
-                        <div className="col-md-6">
-                          <h4 className="schedule-text">RESEPSI</h4>
-                          <p>
-                            <i className="far fa-clock"></i> 13:30 WIT - Selesai{" "}
-                            <br />
-                            <i className="far fa-calendar-alt"></i>8 Mei 2022
-                          </p>
-                          <h5>Suni Garden Lake Hotel</h5>
-                          <p className="place-address">
-                            Jl. Sentani Kota, Sentani, Jayapura Regency, Papua
-                            99359
-                          </p>
-                        </div>
+                        {["akad", "all"].includes(
+                          query.get("type").toLowerCase()
+                        ) && (
+                          <div
+                            className={
+                              query.get("type").toLowerCase() === "akad"
+                                ? "col-md-12"
+                                : "col-md-6"
+                            }
+                          >
+                            <h4 className="schedule-text">AKAD</h4>
+                            <p>
+                              <i className="far fa-clock"></i> 07:45 WIT -
+                              Selesai <br />
+                              <i className="far fa-calendar-alt"></i> 6 Mei 2022
+                            </p>
+                            <h5>Masjid Agung Al Aqsha Sentani</h5>
+                            <p className="place-address">
+                              Jl. Raya Sentani, Sentani Kota, Sentani, Sentani
+                              Kota, Kec. Sentani, Kabupaten Jayapura, Papua
+                              99359
+                            </p>
+                          </div>
+                        )}
+
+                        {["resepsi", "all"].includes(
+                          query.get("type").toLowerCase()
+                        ) && (
+                          <div
+                            className={
+                              query.get("type").toLowerCase() === "resepsi"
+                                ? "col-md-12"
+                                : "col-md-6"
+                            }
+                          >
+                            <h4 className="schedule-text">RESEPSI</h4>
+                            <p>
+                              <i className="far fa-clock"></i> 12:30 - 15:30 WIT <br />
+                              <i className="far fa-calendar-alt"></i> 8 Mei 2022
+                            </p>
+                            <h5>Suni Garden Lake Hotel</h5>
+                            <p className="place-address">
+                              Jl. Sentani Kota, Sentani, Jayapura Regency, Papua
+                              99359
+                            </p>
+                          </div>
+                        )}
                       </div>
                     </div>
                     <div
@@ -193,7 +217,11 @@ export default function Ryan() {
                       }}
                     >
                       <CountDown
-                        date={new Date("2022-05-06:23:34:00").toISOString()}
+                        date={new Date(
+                          query.get("type").toLowerCase() === "resepsi"
+                            ? "2022-05-08:12:30:00"
+                            : "2022-05-06:23:34:00"
+                        ).toISOString()}
                       />
                     </div>
                   </div>
@@ -370,6 +398,7 @@ export default function Ryan() {
           </div>
         </div>
       </section>
+      <p className="copyright">Made with <i className="fa fa-heart love"></i> by <a href="https://www.instagram.com/janjiku.id/">Janjiku.id</a></p>
       <style>
         {`
           img.cincin {
@@ -384,7 +413,12 @@ export default function Ryan() {
           .special-to {
             font-size: 18px;
           }
-
+          .copyright {
+            margin: 5px 0 0 0;
+          }
+          .copyright i.love {
+            color: #db284e;
+          }
           .cover {
             position: fixed;
             background: #fff;
@@ -479,7 +513,7 @@ export default function Ryan() {
             bottom: 0;
             width: 350px;
           }
-          .box-schedule .col-md-6:last-child {
+          .box-schedule .col-md-6:not(:first-child) {
             border-left: 1px solid #d3cba7;
           }
           .box-schedule div h4, h5, p, p.place-address { 
