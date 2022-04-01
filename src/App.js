@@ -2,7 +2,7 @@ import React from 'react'
 import { BrowserRouter, Route } from 'react-router-dom'
 import routes from './routes'
 
-// app gw ini coba dulu..
+// app gw
 
 function App() {
   return (
