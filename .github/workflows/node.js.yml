@@ -21,5 +21,8 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
           script: |
-            ls -la
+            cd fe-janjiku/
+            git pull origin master
+            yes | cp -rf build/* /home/janjikui/public_html
+
     

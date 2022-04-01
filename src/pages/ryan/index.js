@@ -3,9 +3,11 @@ import CountDown from "../../components/countdown";
 import Card from "../../components/card-bank";
 import Comment from "./comment-section";
 import PlayButton from "./play-button";
+import { useQuery } from "../../utils"
 import audio from "../../sound/ada_untukmu.mp3";
 
 export default function Ryan() {
+  const query = useQuery()
   const [show, setShow] = useState(true);
   const [music, setMusic] = useState({
     prepare: new Audio(audio),
@@ -44,7 +46,7 @@ export default function Ryan() {
         <p className="text-1">The Wedding Of</p>
         <p className="bride-name">~ Rian & Ryan ~</p>
         <p className="special-to">
-          Special to: <strong>affa</strong>
+          Special to: <strong>{query.get("to")}</strong>
         </p>
         <div className="row content-center" style={{ marginTop: "20px" }}>
           <button className="btn btn-primary" onClick={() => CloseCover()}>
