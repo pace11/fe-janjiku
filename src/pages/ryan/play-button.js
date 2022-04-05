@@ -4,7 +4,7 @@ export default function PlayButton({ isPlay, onPaused }) {
     return (
         <div className="sound-play">
             <i className={`fa ${isPlay ? "fa-pause-circle" : "fa-play-circle"}`} onClick={() => onPaused(isPlay)}></i>
-            <span>Ada Untukmu <i className="fa fa-music"></i></span>
+            <span><i className="fa fa-music"></i></span>
             <style>
                 {`
                     .sound-play {
@@ -15,7 +15,11 @@ export default function PlayButton({ isPlay, onPaused }) {
                         top: 20px;
                         left: 20px;
                         width: auto;
-                        height: 20px;
+                        height: auto;
+                        background: rgb(204, 204, 204); /* Fallback for older browsers without RGBA-support */
+                        background: rgba(204, 204, 204, 0.3);
+                        padding: 5px;
+                        border-radius: 30px;
                     }
                     .sound-play i {
                         font-size: 30px;
@@ -24,8 +28,9 @@ export default function PlayButton({ isPlay, onPaused }) {
                         margin-left: 5px;
                         font-size: 14px;
                     }
-                    .sound-play span:hover {
-                        color: red;
+                    .sound-play:hover {
+                        background: rgba(204, 204, 204, 0.6);
+                        cursor: pointer;
                     }
                     .sound-play span i {
                         font-size: 14px;

@@ -89,6 +89,12 @@ export default function Dana(props) {
             margin: 64px 89px -115px -97px;
             background: rgba(255, 255, 255, 0.04);
           }
+
+          @media(max-width: 425px) { 
+            .card-dana {
+              width: 250px;
+            }
+          }
         `}
       </style>
     </div>

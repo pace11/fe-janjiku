@@ -3,6 +3,7 @@ import CountDown from "../../components/countdown";
 import Card from "../../components/card-bank";
 import Comment from "./comment-section";
 import PlayButton from "./play-button";
+import Copyright from "./copyright"
 import { useQuery } from "../../utils";
 import audio from "../../sound/ada_untukmu.mp3";
 
@@ -46,7 +47,10 @@ export default function Ryan() {
         <p className="text-1">The Wedding Of</p>
         <p className="bride-name">~ Rian & Ryan ~</p>
         <p className="special-to">
-          Special to: <strong>{query.get("to")}</strong>
+          Special to: <strong>{query.get("to") !== null ? query.get("to") : "You"}</strong>
+        </p>
+        <p className="cover-desc">
+          *mohon maaf apabila ada kesalahan nama dan gelar
         </p>
         <div className="row content-center" style={{ marginTop: "20px" }}>
           <button className="btn btn-primary" onClick={() => CloseCover()}>
@@ -104,7 +108,7 @@ export default function Ryan() {
                   data-animate-delay="100"
                 >
                   <div className="col-md-12 content-center">
-                    <p className="text-2">Assalamualaikum Wr. Wb.</p>
+                    <p className="text-2">Assalamualaikum Warahmatullahi Wabarakatuh</p>
                     <p className="desc-1">
                       Maha suci Allah yang telah menciptakan makhluk-Nya
                       berpasang-pasangan. Dengan memohon Rahmat dan Ridho Allah
@@ -158,9 +162,9 @@ export default function Ryan() {
                     <p className="text-2">Acara Pernikahan</p>
                     <div className="col-md-6">
                       <div className="row box-schedule">
-                        {["akad", "all"].includes(
+                        {query.get("type") !== null && ["akad", "all"].includes(
                           query.get("type").toLowerCase()
-                        ) && (
+                        ) ? (
                           <div
                             className={
                               query.get("type").toLowerCase() === "akad"
@@ -181,11 +185,27 @@ export default function Ryan() {
                               99359
                             </p>
                           </div>
+                        ) : (
+                          <div
+                            className="col-md-6">
+                            <h4 className="schedule-text">AKAD</h4>
+                            <p>
+                              <i className="far fa-clock"></i> 07:45 WIT -
+                              Selesai <br />
+                              <i className="far fa-calendar-alt"></i> 6 Mei 2022
+                            </p>
+                            <h5>Masjid Agung Al Aqsha Sentani</h5>
+                            <p className="place-address">
+                              Jl. Raya Sentani, Sentani Kota, Sentani, Sentani
+                              Kota, Kec. Sentani, Kabupaten Jayapura, Papua
+                              99359
+                            </p>
+                          </div>
                         )}
 
-                        {["resepsi", "all"].includes(
+                        {query.get("type") !== null && ["resepsi", "all"].includes(
                           query.get("type").toLowerCase()
-                        ) && (
+                        ) ? (
                           <div
                             className={
                               query.get("type").toLowerCase() === "resepsi"
@@ -204,9 +224,27 @@ export default function Ryan() {
                               99359
                             </p>
                           </div>
+                        ) : (
+                          <div className="col-md-6">
+                            <h4 className="schedule-text">RESEPSI</h4>
+                            <p>
+                              <i className="far fa-clock"></i> 12:30 - 15:30 WIT <br />
+                              <i className="far fa-calendar-alt"></i> 8 Mei 2022
+                            </p>
+                            <h5>Suni Garden Lake Hotel</h5>
+                            <p className="place-address">
+                              Jl. Sentani Kota, Sentani, Jayapura Regency, Papua
+                              99359
+                            </p>
+                          </div>
                         )}
                       </div>
                     </div>
+                    <p className="desc-1">
+                      Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan do'a restu kepada kedua mempelai <br />
+                      Atas kehadirannya dan doa restunya kami ucapkan terima kasih
+                    </p>
+                    <p className="text-2">Wassalamualaikum Warahmatullahi Wabarakatuh</p>
                     <div
                       className="col-md-6"
                       style={{
@@ -218,7 +256,7 @@ export default function Ryan() {
                     >
                       <CountDown
                         date={new Date(
-                          query.get("type").toLowerCase() === "resepsi"
+                          query.get("type") !== null && query.get("type").toLowerCase() === "resepsi"
                             ? "2022-05-08:12:30:00"
                             : "2022-05-06:23:34:00"
                         ).toISOString()}
@@ -398,7 +436,7 @@ export default function Ryan() {
           </div>
         </div>
       </section>
-      <p className="copyright">Made with <i className="fa fa-heart love"></i> by <a href="https://www.instagram.com/janjiku.id/">Janjiku.id</a></p>
+      <Copyright />
       <style>
         {`
           img.cincin {
@@ -411,13 +449,19 @@ export default function Ryan() {
             flex-direction: column;
           }
           .special-to {
+            display: inline;
             font-size: 18px;
+            border-top: 1px solid #000;
+            border-bottom: 1px solid #000;
+            margin: 0;
+            padding: 5px 0;
           }
-          .copyright {
-            margin: 5px 0 0 0;
-          }
-          .copyright i.love {
-            color: #db284e;
+          .cover-desc {
+            margin: 0;
+            padding: 10px 0 0 0;
+            font-size: 13px;
+            font-style: italic;
+            font-weight: 500;
           }
           .cover {
             position: fixed;
@@ -435,6 +479,7 @@ export default function Ryan() {
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
+            text-align: center;
           }
 
           .cover.show {
@@ -505,7 +550,7 @@ export default function Ryan() {
           .row-3 div.border {
             border-radius: 20px;
             border: 3px double #777777 !important;
-            padding: 10px;
+            padding: 150px 20px;
           }
           .row-3 .img-1 {
             position: absolute;
@@ -773,7 +818,7 @@ export default function Ryan() {
             }
             .row-3 div.border {
               border-radius: 20px;
-              padding: 10px;
+              padding: 150px 10px;
             }
             .row-3 .img-1 {
               display: none;
