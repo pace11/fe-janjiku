@@ -20,12 +20,15 @@ export default function Ryan() {
 
   const CloseCover = () => {
     music.prepare.play();
+    window.scrollTo(0, 0)
     setMusic({
       ...music,
       playing: true,
     });
     setShow(false);
-    setIsModal(true);
+    setTimeout(() => {
+      setIsModal(true);
+    }, 1000)
   };
 
   const HandlePausedMusic = (params) => {
@@ -154,7 +157,7 @@ export default function Ryan() {
                       <div className="row box-schedule">
                         {query.get("type") !== null && ["akad", "all"].includes(
                           query.get("type").toLowerCase()
-                        ) ? (
+                        ) && (
                           <div
                             className={
                               query.get("type").toLowerCase() === "akad"
@@ -176,28 +179,11 @@ export default function Ryan() {
                               99359
                             </p>
                           </div>
-                        ) : (
-                          <div
-                            className="col-md-6">
-                            <h4 className="schedule-text">AKAD</h4>
-                            <p>
-                              <i className="far fa-calendar-alt"></i> 6 Mei 2022 <br />
-                              <i className="far fa-clock"></i> 07:45 WIT -
-                              Selesai <br />
-                              <i className="fab fa-instagram"></i> <b>LIVE AKAD di <a href="https://www.instagram.com/ryanpace11/" target="_blank" rel="noreferrer">@ryanpace11</a></b>
-                            </p>
-                            <h5>Masjid Agung Al Aqsha Sentani</h5>
-                            <p className="place-address">
-                              Jl. Raya Sentani, Sentani Kota, Sentani, Sentani
-                              Kota, Kec. Sentani, Kabupaten Jayapura, Papua
-                              99359
-                            </p>
-                          </div>
                         )}
 
                         {query.get("type") !== null && ["resepsi", "all"].includes(
                           query.get("type").toLowerCase()
-                        ) ? (
+                        ) && (
                           <div
                             className={
                               query.get("type").toLowerCase() === "resepsi"
@@ -216,23 +202,10 @@ export default function Ryan() {
                               99359
                             </p>
                           </div>
-                        ) : (
-                          <div className="col-md-6">
-                            <h4 className="schedule-text">RESEPSI</h4>
-                            <p>
-                              <i className="far fa-calendar-alt"></i> 8 Mei 2022 <br />
-                              <i className="far fa-clock"></i> 12:30 - 15:30 WIT 
-                            </p>
-                            <h5>Suni Garden Lake Hotel</h5>
-                            <p className="place-address">
-                              Jl. Sentani Kota, Sentani, Jayapura Regency, Papua
-                              99359
-                            </p>
-                          </div>
                         )}
                       </div>
                     </div>
-                    <p className="desc-1">
+                    <p className="place-address">
                       Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan do'a restu kepada kedua mempelai <br />
                       Atas kehadirannya dan doa restunya kami ucapkan terima kasih
                     </p>
@@ -284,7 +257,7 @@ export default function Ryan() {
                         <iframe
                           title="maps-layout"
                           id="gmap_canvas"
-                          src="https://maps.google.com/maps?q=Masjid+Agung+Al+Aqsha&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                          src="https://maps.google.com/maps?q=Masjid+Agung+Al+Aqsha+Jl.+Raya+Sentani,+Sentani+Kota,+Sentani+Sentani+Kota+Kec.+Sentani,+Kabupaten+Jayapura,+Papua+99359&t=&z=13&ie=UTF8&iwloc=&output=embed"
                           frameBorder="0"
                           scrolling="no"
                           marginHeight="0"

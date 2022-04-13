@@ -12,6 +12,7 @@ export default function CommentSection() {
     created_at: null,
   })
   const [greetings, setGreetings] = useState();
+  const [isLoading, setIsLoading] = useState(false);
 
   const ClearForm = () => {
     setData({
@@ -31,6 +32,7 @@ export default function CommentSection() {
   }
 
   const OnSubmit = () => {
+    setIsLoading(true)
     setData({
       ...data,
       id: v4(),
@@ -41,7 +43,8 @@ export default function CommentSection() {
   useEffect(() => {
     if (data?.id) {
       postGreeting([data]).then((res) => {
-        setGreetings(res)
+        setIsLoading(false)
+        setGreetings(res.sort((a, b) => new Date(b.created_at) - new Date(a.created_at)))
         ClearForm()
       }).catch((err) => console.log("Err ===>", err))
     }
@@ -50,7 +53,7 @@ export default function CommentSection() {
   useEffect(() => {
     getListGreetings()
       .then((res) => {
-        setGreetings(res)
+        setGreetings(res.sort((a, b) => new Date(b.created_at) - new Date(a.created_at)))
       })
       .catch((err) => console.error(err));
   }, []);
@@ -92,6 +95,13 @@ export default function CommentSection() {
         </div>
       </div>
       <div className="row">
+        {
+          isLoading && (
+            <div className="col-md-12">
+              <p>loading ...</p>
+            </div>
+          )
+        }
         <div className="col-md-12 item-comment-box">
           {greetings &&
             greetings.map((item, i) => (
