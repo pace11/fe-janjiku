@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import CountDown from "../../components/countdown";
+import Modal from "../../components/modal";
 import Card from "../../components/card-bank";
 import Comment from "./comment-section";
+import CoverInvitation from "./cover";
 import PlayButton from "./play-button";
 import Copyright from "./copyright"
 import { useQuery } from "../../utils";
@@ -9,6 +11,7 @@ import audio from "../../sound/ada_untukmu.mp3";
 
 export default function Ryan() {
   const query = useQuery();
+  const [isModal, setIsModal] = useState(false);
   const [show, setShow] = useState(true);
   const [music, setMusic] = useState({
     prepare: new Audio(audio),
@@ -22,6 +25,7 @@ export default function Ryan() {
       playing: true,
     });
     setShow(false);
+    setIsModal(true);
   };
 
   const HandlePausedMusic = (params) => {
@@ -43,21 +47,7 @@ export default function Ryan() {
   return (
     <React.Fragment>
       <PlayButton isPlay={music?.playing} onPaused={HandlePausedMusic} />
-      <div className={`cover ${show ? "show" : ""}`}>
-        <p className="text-1">The Wedding Of</p>
-        <p className="bride-name">~ Rian & Ryan ~</p>
-        <p className="special-to">
-          Special to: <strong>{query.get("to") !== null ? query.get("to") : "You"}</strong>
-        </p>
-        <p className="cover-desc">
-          *mohon maaf apabila ada kesalahan nama dan gelar
-        </p>
-        <div className="row content-center" style={{ marginTop: "20px" }}>
-          <button className="btn btn-primary" onClick={() => CloseCover()}>
-            Open Invitation
-          </button>
-        </div>
-      </div>
+      <CoverInvitation show={show} to={query.get("to")} onHide={CloseCover} />
       <section id="part-1">
         <div className="container-fluid">
           <div className="row">
@@ -174,9 +164,10 @@ export default function Ryan() {
                           >
                             <h4 className="schedule-text">AKAD</h4>
                             <p>
+                              <i className="far fa-calendar-alt"></i> 6 Mei 2022 <br />
                               <i className="far fa-clock"></i> 07:45 WIT -
                               Selesai <br />
-                              <i className="far fa-calendar-alt"></i> 6 Mei 2022
+                              <i className="fab fa-instagram"></i> <b>LIVE AKAD di <a href="https://www.instagram.com/ryanpace11/" target="_blank" rel="noreferrer">@ryanpace11</a></b>
                             </p>
                             <h5>Masjid Agung Al Aqsha Sentani</h5>
                             <p className="place-address">
@@ -190,9 +181,10 @@ export default function Ryan() {
                             className="col-md-6">
                             <h4 className="schedule-text">AKAD</h4>
                             <p>
+                              <i className="far fa-calendar-alt"></i> 6 Mei 2022 <br />
                               <i className="far fa-clock"></i> 07:45 WIT -
                               Selesai <br />
-                              <i className="far fa-calendar-alt"></i> 6 Mei 2022
+                              <i className="fab fa-instagram"></i> <b>LIVE AKAD di <a href="https://www.instagram.com/ryanpace11/" target="_blank" rel="noreferrer">@ryanpace11</a></b>
                             </p>
                             <h5>Masjid Agung Al Aqsha Sentani</h5>
                             <p className="place-address">
@@ -215,8 +207,8 @@ export default function Ryan() {
                           >
                             <h4 className="schedule-text">RESEPSI</h4>
                             <p>
-                              <i className="far fa-clock"></i> 12:30 - 15:30 WIT <br />
-                              <i className="far fa-calendar-alt"></i> 8 Mei 2022
+                              <i className="far fa-calendar-alt"></i> 8 Mei 2022 <br />
+                              <i className="far fa-clock"></i> 12:30 - 15:30 WIT 
                             </p>
                             <h5>Suni Garden Lake Hotel</h5>
                             <p className="place-address">
@@ -228,8 +220,8 @@ export default function Ryan() {
                           <div className="col-md-6">
                             <h4 className="schedule-text">RESEPSI</h4>
                             <p>
-                              <i className="far fa-clock"></i> 12:30 - 15:30 WIT <br />
-                              <i className="far fa-calendar-alt"></i> 8 Mei 2022
+                              <i className="far fa-calendar-alt"></i> 8 Mei 2022 <br />
+                              <i className="far fa-clock"></i> 12:30 - 15:30 WIT 
                             </p>
                             <h5>Suni Garden Lake Hotel</h5>
                             <p className="place-address">
@@ -437,8 +429,19 @@ export default function Ryan() {
         </div>
       </section>
       <Copyright />
+      <Modal show={isModal} onHide={() => setIsModal(false)}>
+        <img
+          style={{ width: "100%", height: "100%" }}
+          src={require("../../images/covid-protocol.jpg").default}
+          alt=""
+        />
+      </Modal>
       <style>
         {`
+          html::-webkit-scrollbar {
+            display: none;
+          }
+
           img.cincin {
             width: 300px;
           }
@@ -456,41 +459,6 @@ export default function Ryan() {
             margin: 0;
             padding: 5px 0;
           }
-          .cover-desc {
-            margin: 0;
-            padding: 10px 0 0 0;
-            font-size: 13px;
-            font-style: italic;
-            font-weight: 500;
-          }
-          .cover {
-            position: fixed;
-            background: #fff;
-            visibility: hidden;
-            opacity: 0.3;
-            transition: all 1s ease;
-            left: -1000px;
-            top: 0;
-            bottom: 0;
-            z-index: 999;
-            background-image: url(${
-              require("../../images/ryan/image-5.jpg").default
-            });
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            text-align: center;
-          }
-
-          .cover.show {
-            visibility: visible;
-            opacity: 1;
-            left: 0;
-            right: 0;
-            top: 0;
-            bottom: 0;
-          }
-
 
           /* part 1 and row 1 */
           #part-1, #part-3, #part-5, #part-7 {
@@ -517,7 +485,6 @@ export default function Ryan() {
             bottom: 0;
             width: 150px;
           }
-
 
           /* part 2 and row 2 */
           .row-2 {

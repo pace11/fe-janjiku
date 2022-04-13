@@ -57,6 +57,10 @@ export default function Modal(props) {
             box-shadow: 0px 0px 36px -9px rgba(0,0,0,0.75);
           }
 
+          .janjiku-modal-row::-webkit-scrollbar {
+            display: none;
+          }
+
           ${
             props.show &&
             ` html, body .body-inner {
@@ -75,6 +79,22 @@ export default function Modal(props) {
             opacity: 1 !important;
             visibility: visible !important; 
             top: -200px;
+          }
+
+          @media(max-width: 1024px) {
+            .janjiku-modal-content { 
+              top: 5px;
+              width: 500px !important;
+              box-sizing: border-box;
+            }
+            .janjiku-modal.show > .janjiku-modal-content {
+              opacity: 1 !important;
+              visibility: visible !important; 
+              top: 0;
+            }
+            .janjiku-modal-row {
+              max-height: 350px;
+            }
           }
 
           @media(max-width: 425px) {
