@@ -68,7 +68,7 @@ export default function Ryan() {
                       src={require("../../images/rings.png").default}
                       alt=""
                     />
-                    <p className="bride-name">~ Rian & Ryan ~</p>
+                    <p className="bride-name">~ Riantri & Ryan ~</p>
                     <p className="desc-1">
                       Kami ingin kalian semua menjadi bagian di hari istimewa
                       kami 😇

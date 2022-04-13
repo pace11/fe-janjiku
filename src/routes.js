@@ -21,7 +21,7 @@ const Routes = [
     component: Paket,
   },
   {
-    path: '/rian-dan-ryan',
+    path: '/riantri-dan-ryan',
     exact: true,
     layout: NoLayout,
     component: Ryan,
