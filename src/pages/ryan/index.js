@@ -70,7 +70,7 @@ export default function Ryan() {
                     />
                     <p className="bride-name">~ Riantri & Ryan ~</p>
                     <p className="desc-1">
-                      Kami ingin kalian semua menjadi bagian di hari istimewa
+                      Kami ingin keluarga dan sahabat semua menjadi bagian di hari istimewa
                       kami 😇
                     </p>
                   </div>
@@ -363,8 +363,8 @@ export default function Ryan() {
                     <p className="text-3">Gift</p>
                     <p className="text-2">Hadiah Pernikahan</p>
                     <p className="desc-1">
-                      Untuk keluarga dan sahabat yang ini mengirimkan hadiah,
-                      silahkan kirimkan melalui:
+                      Untuk keluarga dan sahabat yang ingin mengirimkan hadiah,
+                      silahkan dikirimkan melalui:
                     </p>
                     <div className="row content-center">
                       <div className="row m-20">
