@@ -1,6 +1,7 @@
 {
   "name": "janjiku-id",
   "version": "0.1.0",
+  "homepage": "https://janjiku.id",
   "private": true,
   "dependencies": {
     "@react-google-maps/api": "^2.1.1",

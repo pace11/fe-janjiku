@@ -101,7 +101,8 @@ export default function Ryan() {
                   data-animate-delay="100"
                 >
                   <div className="col-md-12 content-center">
-                    <p className="text-2">Assalamualaikum Warahmatullahi Wabarakatuh</p>
+                    <p className="text-4">بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ</p>
+                    <p className="text-3">السَّلاَمُ عَلَيْكُمْ وَرَحْمَةُ اللهِ وَبَرَكَاتُهُ</p><br /><br />
                     <p className="desc-1">
                       Maha suci Allah yang telah menciptakan makhluk-Nya
                       berpasang-pasangan. Dengan memohon Rahmat dan Ridho Allah
@@ -209,7 +210,7 @@ export default function Ryan() {
                       Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan do'a restu kepada kedua mempelai <br />
                       Atas kehadirannya dan doa restunya kami ucapkan terima kasih
                     </p>
-                    <p className="text-2">Wassalamualaikum Warahmatullahi Wabarakatuh</p>
+                    <p className="text-3">وَالسَّلاَمُ عَلَيْكُمْ وَرَحْمَةُ اللهِ وَبَرَكَاتُهُ</p>
                     <div
                       className="col-md-6"
                       style={{
