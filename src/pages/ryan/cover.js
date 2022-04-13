@@ -2,7 +2,7 @@ export default function Cover({ show, to, onHide }) {
   return (
     <div className={`cover ${show ? "show" : ""}`}>
       <p className="text-1">The Wedding Of</p>
-      <p className="bride-name">~ Rian & Ryan ~</p>
+      <p className="bride-name">~ Riantri & Ryan ~</p>
       <p className="special-to">
         Special to: <strong>{to !== null ? to : "You"}</strong>
       </p>
