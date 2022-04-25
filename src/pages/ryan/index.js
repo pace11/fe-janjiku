@@ -156,7 +156,7 @@ export default function Ryan() {
                     <p className="text-2">Acara Pernikahan</p>
                     <div className="col-md-6">
                       <div className="row box-schedule">
-                        {query.get("type") !== null && ["akad", "all"].includes(
+                        {query.get("type") !== null && ["akad", "all", "spec"].includes(
                           query.get("type").toLowerCase()
                         ) && (
                           <div
@@ -201,6 +201,24 @@ export default function Ryan() {
                             <p className="place-address">
                               Jl. Sentani Kota, Sentani, Jayapura Regency, Papua
                               99359
+                            </p>
+                          </div>
+                        )}
+
+                        {query.get("type") !== null && ["spec"].includes(
+                          query.get("type").toLowerCase()
+                        ) && (
+                          <div
+                            className="col-md-6"
+                          >
+                            <h4 className="schedule-text">NGUNDUH MANTU</h4>
+                            <p>
+                              <i className="far fa-calendar-alt"></i> 14 Mei 2022 <br />
+                              <i className="far fa-clock"></i> 09:00 WIT - Selesai 
+                            </p>
+                            <h5>Kediaman Bapak Nasiman dan Ibu Iriani Rahanyamtel</h5>
+                            <p className="place-address">
+                              Jl. Enggros Kampkey Abepura, lampu merah kampkey naik keatas belok kiri masuk terus ke dalam rumah pagar steinless
                             </p>
                           </div>
                         )}
