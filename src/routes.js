@@ -16,13 +16,11 @@ const Routes = [
   },
   {
     path: '/:packages/:template',
-    exact: true,
     layout: Layout,
     component: Paket,
   },
   {
     path: '/riantri-dan-ryan',
-    exact: true,
     layout: NoLayout,
     component: Ryan,
   },
