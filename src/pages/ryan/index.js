@@ -205,16 +205,16 @@ export default function Ryan() {
                           </div>
                         )}
 
-                        {query.get("type") !== null && ["spec"].includes(
+                        {query.get("type") !== null && ["spec", "mantu"].includes(
                           query.get("type").toLowerCase()
                         ) && (
                           <div
-                            className="col-md-6"
+                            className={["mantu"].includes(query.get("type").toLowerCase()) ? "col-md-12" : "col-md-6"}
                           >
                             <h4 className="schedule-text">NGUNDUH MANTU</h4>
                             <p>
                               <i className="far fa-calendar-alt"></i> 14 Mei 2022 <br />
-                              <i className="far fa-clock"></i> 09:00 WIT - Selesai 
+                              <i className="far fa-clock"></i> 12:30 WIT - Selesai 
                             </p>
                             <h5>Kediaman Bapak Nasiman dan Ibu Iriani Rahanyamtel</h5>
                             <p className="place-address">
@@ -238,13 +238,13 @@ export default function Ryan() {
                         flexDirection: "column",
                       }}
                     >
-                      <CountDown
+                      {/* <CountDown
                         date={new Date(
                           query.get("type") !== null && query.get("type").toLowerCase() === "resepsi"
                             ? "2022-05-08:12:30:00"
                             : "2022-05-06:23:34:00"
                         ).toISOString()}
-                      />
+                      /> */}
                     </div>
                   </div>
                 </div>
