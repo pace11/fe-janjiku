@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 export default function Home() {
   return (
@@ -14,15 +14,12 @@ export default function Home() {
               >
                 <img
                   className="image-home-f1"
-                  src={require('../../images/janjiku-id.png').default}
+                  src={require("../../images/janjiku-id.png").default}
                   alt=""
                 />
                 <p className="lead">
-                  Kreasikan Undangan Nikahan nikahan anda dengan tampilan yang
-                  menarik disini
-                </p>
-                <p>
-                  <i className="fa fa-info-circle"></i> Coming Soon !!
+                  Kreasikan Undangan Nikahan anda dengan template yang tersedia
+                  disini
                 </p>
               </div>
             </div>
@@ -31,15 +28,19 @@ export default function Home() {
       </section>
       <section id="pricing" className="background-grey">
         <div
-          class="row"
+          className="row"
           style={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
           }}
         >
-          <div class="col-lg-8 col-md-8 col-md-12">
-            <div className="container-fluid">
+          <div className="col-lg-8 col-md-8 col-md-12">
+            <div
+              className="container-fluid"
+              data-animate="fadeInLeft"
+              data-animate-delay="500"
+            >
               <div className="row pricing-table">
                 <div className="col-lg-6 col-md-6 col-12">
                   <div className="plan">
@@ -52,7 +53,7 @@ export default function Home() {
                       <div className="plan-price">
                         <sup>Rp</sup>80<sup>.000</sup>
                       </div>
-                      <a className="btn btn-outline" href="/#">
+                      <a className="btn btn-outline" href="/paket-1">
                         <i className="icon-shopping-cart"></i> Pilih
                       </a>
                     </div>
@@ -60,10 +61,13 @@ export default function Home() {
                       <ul>
                         <li>
                           <i className="fas fa-check-circle"></i>Bebas Revisi
+                          Wording (Selain Template)
+                        </li>
+                        <li className="inactive">
+                          <i className="fas fa-times-circle"></i>Cover Undangan
                         </li>
                         <li>
-                          <i className="fas fa-check-circle"></i>Gallery Foto (5
-                          foto)
+                          <i className="fas fa-check-circle"></i>Gallery Foto
                         </li>
                         <li className="inactive">
                           <i className="fas fa-times-circle"></i>Embed Video
@@ -76,16 +80,17 @@ export default function Home() {
                           <i className="fas fa-check-circle"></i>Fitur Countdown
                           Timer
                         </li>
-                        <li className="inactive">
-                          <i className="fas fa-times-circle"></i>Fitur Kirim
-                          Gift
-                        </li>
                         <li>
-                          <i className="fas fa-check-circle"></i>Fitur Ucapan
+                          <i className="fas fa-check-circle"></i>Fitur Kirim
+                          Gift/Angpao
+                        </li>
+                        <li className="inactive">
+                          <i className="fas fa-times-circle"></i>Fitur Ucapan
                           dan RSVP (konfirmasi kehadiran)
                         </li>
                         <li className="inactive">
-                          <i className="fas fa-times-circle"></i>Embed Map
+                          <i className="fas fa-times-circle"></i>Embed Google
+                          Maps
                         </li>
                       </ul>
                     </div>
@@ -97,12 +102,13 @@ export default function Home() {
                       <h4>Janjiku Paket 2</h4>
                       <p className="text-muted">
                         Paket deluxe yang laris dipilih karena memiliki fitur
-                        lengkap yang bisa ditambahkan di undangan digital anda
+                        lengkap sehingga mempercantik tampilan undangan digital
+                        anda
                       </p>
                       <div className="plan-price">
                         <sup>Rp</sup>100<sup>.000</sup>
                       </div>
-                      <a className="btn" href="/#">
+                      <a className="btn" href="/paket-2">
                         <i className="icon-shopping-cart"></i> Pilih
                       </a>
                     </div>
@@ -110,10 +116,13 @@ export default function Home() {
                       <ul>
                         <li>
                           <i className="fas fa-check-circle"></i>Bebas Revisi
+                          Wording (Selain Template)
+                        </li>
+                        <li>
+                          <i className="fas fa-check-circle"></i>Cover Undangan
                         </li>
                         <li>
                           <i className="fas fa-check-circle"></i>Gallery Foto
-                          (10 foto)
                         </li>
                         <li>
                           <i className="fas fa-check-circle"></i>Embed Video
@@ -128,14 +137,15 @@ export default function Home() {
                         </li>
                         <li>
                           <i className="fas fa-check-circle"></i>Fitur Kirim
-                          Gift
+                          Gift/Angpao
                         </li>
                         <li>
                           <i className="fas fa-check-circle"></i>Fitur Ucapan
                           dan RSVP (konfirmasi kehadiran)
                         </li>
                         <li>
-                          <i className="fas fa-check-circle"></i>Embed Map
+                          <i className="fas fa-check-circle"></i>Embed Google
+                          Maps
                         </li>
                       </ul>
                     </div>
@@ -179,5 +189,5 @@ export default function Home() {
         `}
       </style>
     </div>
-  )
+  );
 }

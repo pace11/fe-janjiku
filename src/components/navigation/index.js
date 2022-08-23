@@ -1,6 +1,9 @@
 import React from 'react'
+import { useLocation } from 'react-router-dom'
 
-export default function Navigation({ handleChangeLanguange }) {
+export default function Navigation() {
+  const { pathname } = useLocation()
+
   return (
     <header id="header">
       <div className="header-inner">
@@ -104,11 +107,13 @@ export default function Navigation({ handleChangeLanguange }) {
               <nav>
                 <ul>
                   <li>
-                    <a href="#contact-us">Kontak Kami</a>
+                    <a href="#footer">Kontak Kami</a>
                   </li>
-                  <li>
-                    <a href="#pricing">Harga & Paket</a>
-                  </li>
+                  {pathname === '/' && (
+                    <li>
+                      <a href="#pricing">Harga & Paket</a>
+                    </li>
+                  )}
                 </ul>
               </nav>
             </div>

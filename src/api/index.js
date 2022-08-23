@@ -1,31 +1,45 @@
 import Axios from 'axios'
-
-const apiUrl = 'https://api.steinhq.com/v1/storages/605364b8f62b6004b3eb6788'
+import { messageTelegram } from '../utils'
 
 export const getListGreetings = async () => {
   try {
     const { data } = await Axios({
       method: 'GET',
-      url: `${apiUrl}/inbox`
+      url: `${process.env.REACT_APP_URL_STEIN}/inbox`,
     })
     return data
   } catch (error) {
     console.error(error)
   }
-} 
+}
+
+export const getInvoiceById = async (params) => {
+  try {
+    const filter = {
+      id: params,
+    }
+    const response = await Axios.get(
+      `${process.env.REACT_APP_URL_STEIN}/register`,
+      { params: { search: JSON.stringify(filter) } },
+    )
+    return response
+  } catch (error) {
+    console.error(error)
+  }
+}
 
 export const postGreeting = async (params) => {
   try {
     let response
     const { status } = await Axios({
       method: 'POST',
-      url: `${apiUrl}/inbox`,
-      data: JSON.stringify(params)
+      url: `${process.env.REACT_APP_URL_STEIN}/inbox`,
+      data: JSON.stringify(params),
     })
     if (status === 200) {
       const { data } = await Axios({
         method: 'GET',
-        url: `${apiUrl}/inbox`,
+        url: `${process.env.REACT_APP_URL_STEIN}/inbox`,
       })
       response = data
     }
@@ -33,4 +47,29 @@ export const postGreeting = async (params) => {
   } catch (error) {
     console.error(error)
   }
-} 
+}
+
+export const postRegister = async (params) => {
+  try {
+    const response = await Axios({
+      method: 'POST',
+      url: `${process.env.REACT_APP_URL_STEIN}/register`,
+      data: JSON.stringify(params),
+    })
+    // if (response?.status === 200) {
+    //   await Axios({
+    //     method: 'GET',
+    //     url: `${process.env.REACT_APP_TELEGRAM_API_URL}/${
+    //       process.env.REACT_APP_TELEGRAM_BOT_ID
+    //     }:${
+    //       process.env.REACT_APP_TELEGRAM_TOKEN
+    //     }/sendMessage?chat_id=${
+    //       process.env.REACT_APP_TELEGRAM_CHAT_ID
+    //     }&text=${messageTelegram(params)}`,
+    //   })
+    // }
+    return response
+  } catch (error) {
+    console.error(error)
+  }
+}

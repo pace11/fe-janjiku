@@ -4,8 +4,12 @@ import NoLayout from './layout/no-layout'
 
 // Pages
 import Home from './pages/home'
-import Paket from './pages/paket'
+import CekStatus from './pages/cek-status'
+import Pakcage1 from './pages/package/package-1'
+import Pakcage2 from './pages/package/package-2'
+import Template from './pages/template'
 import Ryan from './pages/ryan'
+import NotFound from './pages/not-found'
 
 const Routes = [
   {
@@ -15,14 +19,38 @@ const Routes = [
     component: Home,
   },
   {
-    path: '/:packages/:template',
+    path: '/cek-status',
+    exact: true,
     layout: Layout,
-    component: Paket,
+    component: CekStatus,
+  },
+  {
+    path: '/paket-1',
+    exact: true,
+    layout: Layout,
+    component: Pakcage1,
+  },
+  {
+    path: '/paket-2',
+    exact: true,
+    layout: Layout,
+    component: Pakcage2,
+  },
+  {
+    path: '/:packages/:template/preview',
+    layout: Layout,
+    component: Template,
   },
   {
     path: '/riantri-dan-ryan',
     layout: NoLayout,
     component: Ryan,
+  },
+  {
+    path: '/404',
+    exact: true,
+    layout: Layout,
+    component: NotFound,
   },
 ]
 

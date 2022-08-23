@@ -59,7 +59,7 @@ export default function Footer() {
       <div className="copyright-content">
         <div className="container">
           <div className="copyright-text text-center">
-            &copy; {new Date().getFullYear()} Janjiku.id
+            &copy; {new Date().getFullYear()} Janjiku.id - build with <i className="fa fa-heart" style={{ color: "#db284e" }}></i>
           </div>
         </div>
       </div>

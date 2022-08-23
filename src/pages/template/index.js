@@ -1,11 +1,16 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
 import Template1 from './template-1'
+import Template2 from './template-2'
 
 const Template = [
   {
-    type: 'template-1',
+    type: 'paket-1=template-1',
     component: Template1,
+  },
+  {
+    type: 'paket-2=template-1',
+    component: Template2,
   },
 ]
 
@@ -14,9 +19,9 @@ export default function Paket1() {
 
   return (
     <React.Fragment>
-      {Template.filter((item) => item.type === template).map((style, idx) => (
+      {Template.filter((item) => item.type === `${packages}=${template}`).map((style) => (
         <style.component
-          key={String(idx)}
+          key={style.type}
           packages={packages}
           template={template}
         />

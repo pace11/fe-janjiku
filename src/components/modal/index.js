@@ -52,7 +52,7 @@
               width: 500px;
               max-height: 500px;
               overflow-y: scroll;
-              background: #fff;
+              background: #f7f7f7;
               padding: 10px;
               border-radius: 4px;
               box-sizing: border-box;

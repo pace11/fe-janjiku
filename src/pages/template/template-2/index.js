@@ -1,50 +1,68 @@
 import React, { useState } from 'react'
-import CountDown from '../../components/countdown'
-import Card from '../../components/card-bank'
-import Modal from '../../components/modal'
+import { useParams } from 'react-router-dom'
+import CountDown from '../../../components/countdown'
+import Modal from '../../../components/modal'
+import Card from '../../../components/card-bank'
+import Comment from './comment-section'
+import CoverInvitation from './cover'
+import PlayButton from './play-button'
+import Copyright from './copyright'
+import CtaRegister from './cta-register'
+import FormRegister from './form-register'
+import { useQuery } from '../../../utils'
+import audio from '../../../sound/ada_untukmu.mp3'
 
-export default function Template1(props) {
-  const listGreeting = [
-    {
-      name: 'Erlangga',
-      content: 'Samawa kalian ya !!!',
-      attend: 'n',
-      created_at: '2021-05-24T17:05:53.000000Z',
-      updated_at: '2021-05-24T17:05:53.000000Z',
-    },
-    {
-      name: 'Firman',
-      content: 'Samawa kalian ya !!!',
-      attend: 'y',
-      created_at: '2021-05-24T17:05:53.000000Z',
-      updated_at: '2021-05-24T17:05:53.000000Z',
-    },
-    {
-      name: 'Rehan',
-      content: 'Samawa kalian ya !!!',
-      attend: 'y',
-      created_at: '2021-05-24T17:05:47.000000Z',
-      updated_at: '2021-05-24T17:05:47.000000Z',
-    },
-    {
-      name: 'Umar',
-      content: 'Samawa kalian ya !!!',
-      attend: 'y',
-      created_at: '2021-05-24T17:05:43.000000Z',
-      updated_at: '2021-05-24T17:05:43.000000Z',
-    },
-    {
-      name: 'Hafiza',
-      content: 'Samawa kalian ya !!!',
-      attend: 'y',
-      created_at: '2021-05-24T17:05:26.000000Z',
-      updated_at: '2021-05-24T17:05:26.000000Z',
-    },
-  ]
-  const [show, setShow] = useState(false)
+export default function Ryan() {
+  const { packages, template } = useParams()
+  const query = useQuery()
+  const [isModal, setIsModal] = useState(false)
+  const [isModalRegister, setIsModalRegister] = useState(false)
+  const [show, setShow] = useState(true)
+  const [music, setMusic] = useState({
+    prepare: new Audio(audio),
+    playing: false,
+  })
+
+  const CloseCover = () => {
+    music.prepare.play()
+    window.scrollTo(0, 0)
+    setMusic({
+      ...music,
+      playing: true,
+    })
+    setShow(false)
+    setTimeout(() => {
+      setIsModal(true)
+    }, 1000)
+  }
+
+  const HandlePausedMusic = (params) => {
+    if (params) {
+      music.prepare.pause()
+      setMusic({
+        ...music,
+        playing: false,
+      })
+    } else {
+      music.prepare.play()
+      setMusic({
+        ...music,
+        playing: true,
+      })
+    }
+  }
 
   return (
     <React.Fragment>
+      <PlayButton
+        isPlay={music?.playing}
+        onPaused={HandlePausedMusic}
+      />
+      <CoverInvitation
+        show={show}
+        to={query.get('to')}
+        onHide={CloseCover}
+      />
       <section id="part-1">
         <div className="container-fluid">
           <div className="row">
@@ -59,25 +77,33 @@ export default function Template1(props) {
                     <p className="text-1">The Wedding Of</p>
                     <img
                       className="cincin"
-                      src={require('../../images/rings.png').default}
+                      src={
+                        require('../../../images/rings.png').default
+                      }
                       alt=""
                     />
-                    <p className="bride-name">~ Hasim & Clarita ~</p>
+                    <p className="bride-name">~ Riantri & Ryan ~</p>
                     <p className="desc-1">
-                      Kami ingin kalian semua menjadi bagian di hari istimewa
-                      kami 😇
+                      Kami ingin keluarga dan sahabat semua menjadi
+                      bagian di hari istimewa kami 😇
                     </p>
                   </div>
                 </div>
               </div>
               <img
                 className="img-1"
-                src={require('../../images/template-1/type-4.png').default}
+                src={
+                  require('../../../images/template-1/type-4.png')
+                    .default
+                }
                 alt="template-1 type-4"
               />
               <img
                 className="img-2"
-                src={require('../../images/template-1/type-5.png').default}
+                src={
+                  require('../../../images/template-1/type-5.png')
+                    .default
+                }
                 alt="template-1 type-5"
               />
             </div>
@@ -95,37 +121,57 @@ export default function Template1(props) {
                   data-animate-delay="100"
                 >
                   <div className="col-md-12 content-center">
-                    <p className="text-2">Assalamualaikum Wr. Wb.</p>
+                    <p className="text-4">
+                      بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ
+                    </p>
+                    <p className="text-3">
+                      السَّلاَمُ عَلَيْكُمْ وَرَحْمَةُ اللهِ
+                      وَبَرَكَاتُهُ
+                    </p>
+                    <br />
+                    <br />
                     <p className="desc-1">
-                      Maha suci Allah yang telah menciptakan makhluk-Nya
-                      berpasang-pasangan. Dengan memohon Rahmat dan Ridho Allah
-                      SWT, kami bermaksud menyelenggarakan Resepsi Pernikahan
-                      Putra-Putri Kami:
+                      Maha suci Allah yang telah menciptakan
+                      makhluk-Nya berpasang-pasangan. Dengan memohon
+                      Rahmat dan Ridho Allah SWT, kami bermaksud
+                      menyelenggarakan Pernikahan Putra-Putri Kami:
                     </p>
                     <img
                       className="couple-1"
                       src={
-                        require('../../images/example/prewedding-8.jpeg')
+                        require('../../../images/ryan/image-4.jpg')
                           .default
                       }
                       alt=""
                     />
                     <p className="text-male">
-                      Hasim Sadraq
+                      Sri Fajar Riantri Alvani, S.T
                       <br />
-                      <span>Putra dari Bapak Dzakir & Ibu Sofiah</span>
+                      <span>"Riantri"</span>
+                      <br />
+                      <span>
+                        Putri dari Bapak H. Sariban & Ibu Hj. Martini
+                      </span>
                     </p>
                     <p className="and">&</p>
                     <p className="text-female">
-                      Clarita <br />
-                      <span>Putri dari Bapak Thomas & Ibu Febia</span>
+                      Muhammad Iriansyah Putra Pratama, S.T <br />
+                      <span>"Ryan"</span>
+                      <br />
+                      <span>
+                        Putra dari Bapak Nasiman & Ibu Iriani
+                        Rahanyamtel
+                      </span>
                     </p>
                   </div>
                 </div>
               </div>
               <img
                 className="img-1"
-                src={require('../../images/template-1/type-3.png').default}
+                src={
+                  require('../../../images/template-1/type-3.png')
+                    .default
+                }
                 alt="template-1 type-3"
               />
             </div>
@@ -150,31 +196,57 @@ export default function Template1(props) {
                         <div className="col-md-6">
                           <h4 className="schedule-text">AKAD</h4>
                           <p>
-                            <i className="far fa-clock"></i> 08:00 - 09:00 WIB{' '}
-                            <br />
-                            <i className="far fa-calendar-alt"></i> 31 Desember
-                            2022
+                            <i className="far fa-calendar-alt"></i> 6
+                            Mei 2022 <br />
+                            <i className="far fa-clock"></i> 07:45 WIT
+                            - Selesai <br />
+                            <i className="fab fa-instagram"></i>{' '}
+                            <b>
+                              LIVE AKAD di{' '}
+                              <a
+                                href="https://www.instagram.com/ryanpace11/"
+                                target="_blank"
+                                rel="noreferrer"
+                              >
+                                @ryanpace11
+                              </a>
+                            </b>
                           </p>
-                          <h5>Hotel Papua Indah</h5>
+                          <h5>Masjid Agung Al Aqsha Sentani</h5>
                           <p className="place-address">
-                            Jln. Gerilyawan No.18 Papua
+                            Jl. Raya Sentani, Sentani Kota, Sentani,
+                            Sentani Kota, Kec. Sentani, Kabupaten
+                            Jayapura, Papua 99359
                           </p>
                         </div>
                         <div className="col-md-6">
                           <h4 className="schedule-text">RESEPSI</h4>
                           <p>
-                            <i className="far fa-clock"></i> 13:00 - 15:00 WIB{' '}
-                            <br />
-                            <i className="far fa-calendar-alt"></i> 31 Desember
-                            2022
+                            <i className="far fa-calendar-alt"></i> 8
+                            Mei 2022 <br />
+                            <i className="far fa-clock"></i> 12:30 -
+                            15:30 WIT
                           </p>
-                          <h5>Hotel Papua Indah</h5>
+                          <h5>Suni Garden Lake Hotel</h5>
                           <p className="place-address">
-                            Jln. Gerilyawan No.18 Papua
+                            Jl. Sentani Kota, Sentani, Jayapura
+                            Regency, Papua 99359
                           </p>
                         </div>
                       </div>
                     </div>
+                    <p className="place-address">
+                      Merupakan suatu kehormatan dan kebahagiaan bagi
+                      kami apabila Bapak/Ibu/Saudara/i berkenan hadir
+                      untuk memberikan do'a restu kepada kedua
+                      mempelai <br />
+                      Atas kehadirannya dan doa restunya kami ucapkan
+                      terima kasih
+                    </p>
+                    <p className="text-3">
+                      وَالسَّلاَمُ عَلَيْكُمْ وَرَحْمَةُ اللهِ
+                      وَبَرَكَاتُهُ
+                    </p>
                     <div
                       className="col-md-6"
                       style={{
@@ -185,7 +257,9 @@ export default function Template1(props) {
                       }}
                     >
                       <CountDown
-                        date={new Date('2021-10-08:23:34:00').toISOString()}
+                        date={new Date(
+                          '2022-12-12:23:34:00',
+                        ).toISOString()}
                       />
                     </div>
                   </div>
@@ -193,7 +267,10 @@ export default function Template1(props) {
               </div>
               <img
                 className="img-1"
-                src={require('../../images/template-1/type-1.png').default}
+                src={
+                  require('../../../images/template-1/type-1.png')
+                    .default
+                }
                 alt=""
               />
             </div>
@@ -218,7 +295,7 @@ export default function Template1(props) {
                         <iframe
                           title="maps-layout"
                           id="gmap_canvas"
-                          src="https://maps.google.com/maps?q=Gelora+Bung+Karno+Main+Stadium&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                          src="https://maps.google.com/maps?q=Masjid+Agung+Al+Aqsha+Jl.+Raya+Sentani,+Sentani+Kota,+Sentani+Sentani+Kota+Kec.+Sentani,+Kabupaten+Jayapura,+Papua+99359&t=&z=13&ie=UTF8&iwloc=&output=embed"
                           frameBorder="0"
                           scrolling="no"
                           marginHeight="0"
@@ -246,83 +323,59 @@ export default function Template1(props) {
                   <div className="col-md-12 content-center">
                     <p className="text-3">Our Memories</p>
                     <p className="text-2">Gallery Photo</p>
-                    <div className="col-md-6 gallery-photo">
+                    <div className="gallery-photo">
                       <img
                         src={
-                          require('../../images/example/prewedding-1.jpeg')
+                          require('../../../images/ryan/image-5.jpg')
                             .default
                         }
                         alt=""
                       />
                     </div>
-                    <div className="col-md-6 gallery-photo">
+                    <div className="gallery-photo">
                       <img
                         src={
-                          require('../../images/example/prewedding-6.jpeg')
+                          require('../../../images/ryan/image-2.jpg')
                             .default
                         }
                         alt=""
                       />
                     </div>
-                    <div className="col-md-6 gallery-photo">
+                    <div className="gallery-photo">
                       <img
                         src={
-                          require('../../images/example/prewedding-4.jpeg')
+                          require('../../../images/ryan/image-1.jpg')
                             .default
                         }
                         alt=""
                       />
                     </div>
-                    <div className="col-md-6 gallery-photo">
+                    <div className="gallery-photo">
                       <img
                         src={
-                          require('../../images/example/prewedding-2.jpeg')
+                          require('../../../images/ryan/image-3.jpg')
                             .default
                         }
                         alt=""
                       />
                     </div>
-                    <div className="col-md-6 gallery-photo">
-                      <img
-                        src={
-                          require('../../images/example/prewedding-5.jpeg')
-                            .default
-                        }
-                        alt=""
-                      />
-                    </div>
-                    <div className="col-md-6 gallery-photo">
-                      <img
-                        src={
-                          require('../../images/example/prewedding-3.jpeg')
-                            .default
-                        }
-                        alt=""
-                      />
-                    </div>
-                    <div className="col-md-6 gallery-photo">
-                      <img
-                        src={
-                          require('../../images/example/prewedding-7.jpeg')
-                            .default
-                        }
-                        alt=""
-                      />
-                    </div>
-                    <br />
-                    <br />
-                    <p className="text-2">Video</p>
                   </div>
                 </div>
               </div>
               <img
                 className="img-1"
-                src={require('../../images/template-1/type-5.png').default}
+                src={
+                  require('../../../images/template-1/type-5.png')
+                    .default
+                }
                 alt=""
               />
               <img
                 className="img-2"
-                src={require('../../images/template-1/type-5.png').default}
+                src={
+                  require('../../../images/template-1/type-5.png')
+                    .default
+                }
                 alt=""
               />
             </div>
@@ -344,87 +397,7 @@ export default function Template1(props) {
                     <p className="text-2">
                       Berikan ucapan terbaik anda untuk kedua mempelai
                     </p>
-                    <div className="box-comment">
-                      <div className="row">
-                        <div className="col-md-12">
-                          <div className="form-group">
-                            <label>Nama</label>
-                            <input
-                              placeholder="cth: Ryan ..."
-                              className="form-control"
-                              disabled
-                            />
-                          </div>
-                          <div className="form-group">
-                            <label>Pesan</label>
-                            <textarea
-                              type="text"
-                              placeholder="cth: Samawa ya ..."
-                              className="form-control"
-                              style={{ resize: 'none' }}
-                              disabled
-                            />
-                          </div>
-                          <div className="form-group">
-                            <label>Konfirmasi Kehadiran</label>
-                            <select className="form-control" disabled>
-                              <option>Hadir</option>
-                              <option>Tidak Hadir</option>
-                            </select>
-                          </div>
-                          <div className="form-group">
-                            <button
-                              className="btn btn-dark btn-block"
-                              onClick={() => console.log('dadada')}
-                            >
-                              Submit
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="row">
-                        <div className="col-md-12 item-comment-box">
-                          {listGreeting &&
-                            listGreeting.map((item, i) => (
-                              <div key={String(i)} className="row item-comment">
-                                <div className="col-lg-2 col-md-2 col-xs-2">
-                                  <span className="box-user">
-                                    <i className="fas fa-user"></i>
-                                  </span>
-                                </div>
-                                <div className="col-lg-10 col-md-10 col-xs-10">
-                                  <p className="item-name">
-                                    {item.name}{' '}
-                                    <span
-                                      className={`badge ${
-                                        item.attend === 'y'
-                                          ? 'badge-success'
-                                          : 'badge-secondary'
-                                      }`}
-                                    >
-                                      <i
-                                        className={`fas ${
-                                          item.attend === 'y'
-                                            ? 'fa-check-circle'
-                                            : 'fa-times-circle'
-                                        }`}
-                                      ></i>{' '}
-                                      {item.attend === 'y'
-                                        ? 'Hadir'
-                                        : 'Tidak Hadir'}
-                                    </span>
-                                  </p>
-                                  <p className="item-date">
-                                    <i className="far fa-clock"></i>{' '}
-                                    {new Date(item.created_at).toDateString()}
-                                  </p>
-                                  <p className="item-content">{item.content}</p>
-                                </div>
-                              </div>
-                            ))}
-                        </div>
-                      </div>
-                    </div>
+                    <Comment />
                   </div>
                 </div>
               </div>
@@ -446,14 +419,30 @@ export default function Template1(props) {
                     <p className="text-3">Gift</p>
                     <p className="text-2">Hadiah Pernikahan</p>
                     <p className="desc-1">
-                      Untuk keluarga dan sahabat yang ini mengirimkan hadiah,
-                      silahkan kirimkan melalui:
+                      Untuk keluarga dan sahabat yang ingin
+                      mengirimkan hadiah, silahkan dikirimkan melalui:
                     </p>
                     <div className="row content-center">
-                      <div className="col-md-12">
-                        <button className="btn" onClick={() => setShow(true)}>
-                          Transfer
-                        </button>
+                      <div className="row m-20">
+                        <Card
+                          name="M IRIANSYAH PRATAMA"
+                          number="0822 4808 0870"
+                          type="gopay"
+                        />
+                      </div>
+                      <div className="row m-20">
+                        <Card
+                          name="M IRIANSYAH PRATAMA"
+                          number="54 9046 6896"
+                          type="bca"
+                        />
+                      </div>
+                      <div className="row m-20">
+                        <Card
+                          name="SRI FAJAR RIANTRI ALVANI"
+                          number="15400 1158 1174"
+                          type="mandiri"
+                        />
                       </div>
                     </div>
                   </div>
@@ -461,61 +450,42 @@ export default function Template1(props) {
               </div>
               <img
                 className="img-1"
-                src={require('../../images/template-1/type-1.png').default}
+                src={
+                  require('../../../images/template-1/type-1.png')
+                    .default
+                }
                 alt=""
               />
             </div>
           </div>
         </div>
       </section>
-      <Modal show={show} onHide={() => setShow(false)}>
-        <div className="row">
-          <div
-            className="col-md-12"
-            style={{
-              display: 'flex',
-              justifyContent: 'center',
-              padding: '10px 0',
-            }}
-          >
-            <Card
-              name="M IRIANSYAH PRATAMA"
-              number="1234 5678 1011"
-              type="gopay"
-            />
-          </div>
-          <div
-            className="col-md-12"
-            style={{
-              display: 'flex',
-              justifyContent: 'center',
-              padding: '10px 0',
-            }}
-          >
-            <Card
-              name="M IRIANSYAH PRATAMA"
-              number="1234 5678 1011"
-              type="ovo"
-            />
-          </div>
-          <div
-            className="col-md-12"
-            style={{
-              display: 'flex',
-              justifyContent: 'center',
-              padding: '10px 0',
-            }}
-          >
-            <Card
-              name="M IRIANSYAH PRATAMA"
-              number="1234 5678 1011"
-              type="mandiri"
-            />
-          </div>
-        </div>
+      <CtaRegister onClick={() => setIsModalRegister(true)} />
+      <Copyright />
+      <Modal show={isModal} onHide={() => setIsModal(false)}>
+        <img
+          style={{ width: '100%', height: '100%' }}
+          src={require('../../../images/covid-protocol.jpg').default}
+          alt=""
+        />
+      </Modal>
+      <Modal
+        show={isModalRegister}
+        onHide={() => setIsModalRegister(false)}
+      >
+        <br />
+        <FormRegister
+          packages={packages}
+          template={template}
+          showModal={isModalRegister}
+        />
       </Modal>
       <style>
         {`
+          html::-webkit-scrollbar {
+            display: none;
+          }
+
           img.cincin {
             width: 300px;
           }
@@ -525,7 +495,14 @@ export default function Template1(props) {
             align-items: center;
             flex-direction: column;
           }
-
+          .special-to {
+            display: inline;
+            font-size: 18px;
+            border-top: 1px solid #000;
+            border-bottom: 1px solid #000;
+            margin: 0;
+            padding: 5px 0;
+          }
 
           /* part 1 and row 1 */
           #part-1, #part-3, #part-5, #part-7 {
@@ -552,7 +529,6 @@ export default function Template1(props) {
             bottom: 0;
             width: 150px;
           }
-
 
           /* part 2 and row 2 */
           .row-2 {
@@ -585,7 +561,7 @@ export default function Template1(props) {
           .row-3 div.border {
             border-radius: 20px;
             border: 3px double #777777 !important;
-            padding: 10px;
+            padding: 150px 20px;
           }
           .row-3 .img-1 {
             position: absolute;
@@ -593,7 +569,7 @@ export default function Template1(props) {
             bottom: 0;
             width: 350px;
           }
-          .box-schedule .col-md-6:last-child {
+          .box-schedule .col-md-6:not(:first-child) {
             border-left: 1px solid #d3cba7;
           }
           .box-schedule div h4, h5, p, p.place-address { 
@@ -660,10 +636,8 @@ export default function Template1(props) {
             width: 200px;
           }
           .gallery-photo img {
-            width: 100%;
+            width: 400px;
             height: auto;
-            border-radius: 20px;
-            margin: 0 0 10px 0;
           }
 
 
@@ -804,6 +778,191 @@ export default function Template1(props) {
             color: #777777;
           }
 
+          @media(max-width: 1024px) {
+            img.cincin {
+              width: 200px;
+            }
+
+
+            /* part 1 and row 1 */
+            .row-1 {
+              padding: 2rem;
+            }
+            .row-1 .border {
+              padding: 0 35px;
+            }
+            .row-1 .img-1 {
+              position: absolute;
+              right: 0;
+              top: 0;
+              width: 150px;
+            }
+            .row-1 .img-2 {
+              position: absolute;
+              left: 0;
+              bottom: 0;
+              width: 100px;
+            }
+
+
+            /* part 2 and row 2 */
+            .row-2 {
+              padding: 2rem;
+            }
+            .row-2 .border2 {
+              padding: 20px 35px 120px 35px;
+            }
+            .row-2 .img-1 {
+              position: absolute;
+              right: 20px;
+              bottom: 0;
+              width: 200px;
+            }
+            img.couple-1 {
+              width: 100%;
+            }
+
+
+            /* part 3 and row 3 */
+            .row-3 {
+              padding: 2rem;
+            }
+            .row-3 div.border {
+              border-radius: 20px;
+              padding: 150px 10px;
+            }
+            .row-3 .img-1 {
+              display: none;
+            }
+            .box-schedule .col-md-6:last-child {
+              border-left: 0px;
+            }
+
+
+            /* part 4 and row 4 */
+            .row-4 {
+              padding: 2rem;
+            }
+            .row-4 .border2 {
+              padding: 10px;
+            }
+            .mapouter {
+              width: 500px;
+            }
+            .gmap_canvas iframe {
+              height: 400px;
+            }
+
+
+            /* part 5 and row 5 */
+            .row-5 {
+              padding: 2rem;
+            }
+            .row-5 .border {
+              padding: 10px;
+            }
+            .row-5 .img-1 {
+              width: 100px;
+            }
+            .row-5 .img-2 {
+              width: 100px;
+            }
+            .gallery-photo img {
+              // border-radius: 10px;
+            }
+
+
+            /* part 6 and row 6 */
+            .row-6 {
+              padding: 2rem;
+            }
+            .row-6 .border2 {
+              padding: 15px;
+            }
+            .box-comment {
+              width: 400px;
+            }
+            .item-comment-box {
+              max-height: 300px;
+              overflow-y: scroll;
+            }
+            .item-comment {
+              border-bottom: 1px solid #e6e8eb;
+              padding: 10px 0;
+            }
+            .item-comment:last-child {
+              border-bottom: 0px;
+            }
+            .item-comment div .box-user {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              width: 40px;
+              height: 40px;
+              background: #dfddd1;
+              border-radius: 50%;
+            }
+            .item-comment div .box-user i {
+              font-size: 20px;
+            }
+            .item-comment div .item-name,
+            .item-comment div .item-date,
+            .item-comment div .item-content {
+              text-align: left;
+              margin: 0;
+              padding: 0;
+            }
+            .item-comment div .item-name {
+              font-weight: 600;
+              color: #333;
+            }
+
+
+            /* part 7 and row 7 */
+            .row-7 {
+              padding: 2rem;
+            }
+            .row-7 .border {
+              padding: 10px;
+            }
+            .row-7 .img-1 {
+              display: none;
+            }
+
+
+            p.text-1 {
+              font-size: 30px;
+              margin: 40px 0 0 0;
+            }
+            p.text-2 {
+              font-size: 30px;
+            }
+            p.text-3 {
+              font-size: 20px;
+            }
+            p.bride-name {
+              font-size: 25px;
+              margin: 5px 0 0 0;
+            }
+            p.desc-1 {
+              font-size: 20px;
+            }
+            p.text-male {
+              font-size: 30px;
+              line-height: 30px;
+            }
+            p.text-male span {
+              font-size: 18px;
+            }
+            p.text-female {
+              font-size: 30px;
+              line-height: 30px;
+            }
+            p.text-female span {
+              font-size: 18px;
+            }
+          }
+
           @media(max-width: 425px) {
             img.cincin {
               width: 100px;
@@ -894,7 +1053,7 @@ export default function Template1(props) {
               width: 70px;
             }
             .gallery-photo img {
-              border-radius: 10px;
+              width: 250px
             }
 
 
@@ -906,193 +1065,7 @@ export default function Template1(props) {
               padding: 15px;
             }
             .box-comment {
-              width: 100%;
-            }
-            .item-comment-box {
-              max-height: 300px;
-              overflow-y: scroll;
-            }
-            .item-comment {
-              border-bottom: 1px solid #e6e8eb;
-              padding: 10px 0;
-            }
-            .item-comment:last-child {
-              border-bottom: 0px;
-            }
-            .item-comment div .box-user {
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              width: 40px;
-              height: 40px;
-              background: #dfddd1;
-              border-radius: 50%;
-            }
-            .item-comment div .box-user i {
-              font-size: 20px;
-            }
-            .item-comment div .item-name,
-            .item-comment div .item-date,
-            .item-comment div .item-content {
-              text-align: left;
-              margin: 0;
-              padding: 0;
-            }
-            .item-comment div .item-name {
-              font-weight: 600;
-              color: #333;
-            }
-
-
-            /* part 7 and row 7 */
-            .row-7 {
-              padding: 2rem;
-            }
-            .row-7 .border {
-              padding: 10px;
-            }
-            .row-7 .img-1 {
-              display: none;
-            }
-
-
-            p.text-1 {
-              font-size: 30px;
-              margin: 40px 0 0 0;
-            }
-            p.text-2 {
-              font-size: 30px;
-            }
-            p.text-3 {
-              font-size: 20px;
-            }
-            p.bride-name {
-              font-size: 25px;
-              margin: 5px 0 0 0;
-            }
-            p.desc-1 {
-              font-size: 20px;
-            }
-            p.text-male {
-              font-size: 30px;
-              line-height: 30px;
-            }
-            p.text-male span {
-              font-size: 18px;
-            }
-            p.text-female {
-              font-size: 30px;
-              line-height: 30px;
-            }
-            p.text-female span {
-              font-size: 18px;
-            }
-          }
-
-
-          @media(max-width: 1024px) {
-            img.cincin {
-              width: 200px;
-            }
-
-
-            /* part 1 and row 1 */
-            .row-1 {
-              padding: 2rem;
-            }
-            .row-1 .border {
-              padding: 0 35px;
-            }
-            .row-1 .img-1 {
-              position: absolute;
-              right: 0;
-              top: 0;
-              width: 150px;
-            }
-            .row-1 .img-2 {
-              position: absolute;
-              left: 0;
-              bottom: 0;
-              width: 100px;
-            }
-
-
-            /* part 2 and row 2 */
-            .row-2 {
-              padding: 2rem;
-            }
-            .row-2 .border2 {
-              padding: 20px 35px 120px 35px;
-            }
-            .row-2 .img-1 {
-              position: absolute;
-              right: 20px;
-              bottom: 0;
-              width: 200px;
-            }
-            img.couple-1 {
-              width: 100%;
-            }
-
-
-            /* part 3 and row 3 */
-            .row-3 {
-              padding: 2rem;
-            }
-            .row-3 div.border {
-              border-radius: 20px;
-              padding: 10px;
-            }
-            .row-3 .img-1 {
-              display: none;
-            }
-            .box-schedule .col-md-6:last-child {
-              border-left: 0px;
-            }
-
-
-            /* part 4 and row 4 */
-            .row-4 {
-              padding: 2rem;
-            }
-            .row-4 .border2 {
-              padding: 10px;
-            }
-            .mapouter {
-              width: 500px;
-            }
-            .gmap_canvas iframe {
-              height: 400px;
-            }
-
-
-            /* part 5 and row 5 */
-            .row-5 {
-              padding: 2rem;
-            }
-            .row-5 .border {
-              padding: 10px;
-            }
-            .row-5 .img-1 {
-              width: 100px;
-            }
-            .row-5 .img-2 {
-              width: 100px;
-            }
-            .gallery-photo img {
-              border-radius: 10px;
-            }
-
-
-            /* part 6 and row 6 */
-            .row-6 {
-              padding: 2rem;
-            }
-            .row-6 .border2 {
-              padding: 15px;
-            }
-            .box-comment {
-              width: 400px;
+              width: 250px;
             }
             .item-comment-box {
               max-height: 300px;
