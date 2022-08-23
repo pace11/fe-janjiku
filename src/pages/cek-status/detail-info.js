@@ -3,7 +3,7 @@ import { status } from '../../const'
 
 const DetailInfo = React.memo(({ data }) => {
   return (
-    <div className="row">
+    <div className="row p-15">
       <div className="col-md-12 col-lg-12 col-xs-12 card-detail">
         <div className="row rw-detail">
           <span>

@@ -114,6 +114,9 @@ export default function Navigation() {
                       <a href="#pricing">Harga & Paket</a>
                     </li>
                   )}
+                  <li>
+                    <a href="/cek-status">Cek Status</a>
+                  </li>
                 </ul>
               </nav>
             </div>

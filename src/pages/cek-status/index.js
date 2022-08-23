@@ -70,7 +70,7 @@ export default function CekStatus() {
           }}
         >
           <div
-            className="col-lg-4 col-md-4 col-md-12 text-center"
+            className="col-lg-4 col-md-4 col-md-12 text-center p-20"
             data-animate="fadeInLeft"
             data-animate-delay="100"
           >

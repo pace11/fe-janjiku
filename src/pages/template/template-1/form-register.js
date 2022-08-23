@@ -162,7 +162,9 @@ const FormRegister = React.memo(
               alt=""
             />
             <p className="id-register">
-              <a href="#a">{invoiceId}</a>
+              <a href={`/cek-status?invoice=${invoiceId}`}>
+                {invoiceId}
+              </a>
             </p>
             <p>
               Untuk melihat status pemesanan, bisa langsung mengklik
