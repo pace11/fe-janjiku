@@ -56,18 +56,18 @@ export const postRegister = async (params) => {
       url: `${process.env.REACT_APP_URL_STEIN}/register`,
       data: JSON.stringify(params),
     })
-    // if (response?.status === 200) {
-    //   await Axios({
-    //     method: 'GET',
-    //     url: `${process.env.REACT_APP_TELEGRAM_API_URL}/${
-    //       process.env.REACT_APP_TELEGRAM_BOT_ID
-    //     }:${
-    //       process.env.REACT_APP_TELEGRAM_TOKEN
-    //     }/sendMessage?chat_id=${
-    //       process.env.REACT_APP_TELEGRAM_CHAT_ID
-    //     }&text=${messageTelegram(params)}`,
-    //   })
-    // }
+    if (response?.status === 200) {
+      await Axios({
+        method: 'GET',
+        url: `${process.env.REACT_APP_TELEGRAM_API_URL}/${
+          process.env.REACT_APP_TELEGRAM_BOT_ID
+        }:${
+          process.env.REACT_APP_TELEGRAM_TOKEN
+        }/sendMessage?chat_id=${
+          process.env.REACT_APP_TELEGRAM_CHAT_ID
+        }&text=${messageTelegram(params)}`,
+      })
+    }
     return response
   } catch (error) {
     console.error(error)
