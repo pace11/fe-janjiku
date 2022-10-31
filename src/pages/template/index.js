@@ -1,16 +1,21 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
-import Template1 from './template-1'
-import Template2 from './template-2'
+import Template11 from './template-11'
+import Template12 from './template-12'
+import Template21 from './template-21'
 
 const Template = [
   {
     type: 'paket-1=template-1',
-    component: Template1,
+    component: Template11,
+  },
+  {
+    type: 'paket-1=template-2',
+    component: Template12,
   },
   {
     type: 'paket-2=template-1',
-    component: Template2,
+    component: Template21,
   },
 ]
 

@@ -7,6 +7,13 @@ module.exports = {
       image: require('../images/ex/template-1.jpg').default,
       imagePage: require('../images/ex/template-1-p.png').default,
     },
+    {
+      id: 'P1-002',
+      title: 'Template 2',
+      link: 'template-2',
+      image: require('../images/ex/template-1.jpg').default,
+      imagePage: require('../images/ex/template-1-p.png').default,
+    },
   ],
   package_two: [
     {

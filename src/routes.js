@@ -9,6 +9,7 @@ import Pakcage1 from './pages/package/package-1'
 import Pakcage2 from './pages/package/package-2'
 import Template from './pages/template'
 import Ryan from './pages/ryan'
+import Fina from './pages/fina'
 import NotFound from './pages/not-found'
 
 const Routes = [
@@ -45,6 +46,11 @@ const Routes = [
     path: '/riantri-dan-ryan',
     layout: NoLayout,
     component: Ryan,
+  },
+  {
+    path: '/fina-dan-taufiq',
+    layout: NoLayout,
+    component: Fina,
   },
   {
     path: '/404',

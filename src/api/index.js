@@ -5,7 +5,7 @@ export const getListGreetings = async () => {
   try {
     const { data } = await Axios({
       method: 'GET',
-      url: `${process.env.REACT_APP_URL_STEIN}/inbox`,
+      url: `${process.env.REACT_APP_URL_STEIN}/inbox_fina`,
     })
     return data
   } catch (error) {
@@ -33,13 +33,13 @@ export const postGreeting = async (params) => {
     let response
     const { status } = await Axios({
       method: 'POST',
-      url: `${process.env.REACT_APP_URL_STEIN}/inbox`,
+      url: `${process.env.REACT_APP_URL_STEIN}/inbox_fina`,
       data: JSON.stringify(params),
     })
     if (status === 200) {
       const { data } = await Axios({
         method: 'GET',
-        url: `${process.env.REACT_APP_URL_STEIN}/inbox`,
+        url: `${process.env.REACT_APP_URL_STEIN}/inbox_fina`,
       })
       response = data
     }
