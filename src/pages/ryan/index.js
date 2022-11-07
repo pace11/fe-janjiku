@@ -241,8 +241,8 @@ export default function Ryan() {
                       <CountDown
                         date={new Date(
                           query.get("type") !== null && query.get("type").toLowerCase() === "resepsi"
-                            ? "2022-05-08:12:30:00"
-                            : "2022-05-06:23:34:00"
+                            ? "05/08/2022 12:30:00"
+                            : "05/08/2022 23:34:00"
                         ).toISOString()}
                       />
                     </div>

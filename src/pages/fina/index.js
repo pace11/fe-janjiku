@@ -228,7 +228,7 @@ export default function Ryan() {
                       }}
                     >
                       <CountDown
-                        date={new Date("2022-12-18:09:00:00").toISOString()}
+                        date={new Date("12/18/2022 09:00:00").toISOString()}
                       />
                     </div>
                   </div>
