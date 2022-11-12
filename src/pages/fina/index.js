@@ -1,56 +1,63 @@
-import React, { useState } from "react";
-import CountDown from "../../components/countdown";
-import Modal from "../../components/modal";
-// import Card from "../../components/card-bank";
-import Comment from "./comment-section";
-import CoverInvitation from "./cover";
-import PlayButton from "./play-button";
-import Copyright from "./copyright"
-import { useQuery } from "../../utils";
-import audio from "../../sound/ada_untukmu.mp3";
+import React, { useState } from 'react'
+import CountDown from '../../components/countdown'
+import Modal from '../../components/modal'
+import Card from "../../components/card-bank";
+import Comment from './comment-section'
+import CoverInvitation from './cover'
+import PlayButton from './play-button'
+import Copyright from './copyright'
+import { useQuery } from '../../utils'
+import audio from '../../sound/ada_untukmu.mp3'
 
 export default function Ryan() {
-  const query = useQuery();
-  const [isModal, setIsModal] = useState(false);
-  const [show, setShow] = useState(true);
+  const query = useQuery()
+  const [isModal, setIsModal] = useState(false)
+  const [show, setShow] = useState(true)
   const [music, setMusic] = useState({
     prepare: new Audio(audio),
     playing: false,
-  });
+  })
 
   const CloseCover = () => {
-    music.prepare.play();
+    // music.prepare.play();
     window.scrollTo(0, 0)
     setMusic({
       ...music,
       playing: true,
-    });
-    setShow(false);
+    })
+    setShow(false)
     setTimeout(() => {
-      setIsModal(true);
+      setIsModal(true)
     }, 1000)
-  };
+  }
 
   const HandlePausedMusic = (params) => {
     if (params) {
-      music.prepare.pause();
+      // music.prepare.pause();
       setMusic({
         ...music,
         playing: false,
-      });
+      })
     } else {
-      music.prepare.play();
+      music.prepare.play()
       setMusic({
         ...music,
         playing: true,
-      });
+      })
     }
-  };
+  }
 
   return (
     <React.Fragment>
-      <PlayButton isPlay={music?.playing} onPaused={HandlePausedMusic} />
-      <CoverInvitation show={show} to={query.get("to")} onHide={CloseCover} />
+      <PlayButton
+        isPlay={music?.playing}
+        onPaused={HandlePausedMusic}
+      />
+      <CoverInvitation
+        show={show}
+        to={query.get('to')}
+        onHide={CloseCover}
+      />
       <section id="part-1">
         <div className="container-fluid">
           <div className="row">
@@ -65,25 +72,31 @@ export default function Ryan() {
                     <p className="text-1">The Wedding Of</p>
                     <img
                       className="cincin"
-                      src={require("../../images/rings.png").default}
+                      src={require('../../images/rings.png').default}
                       alt=""
                     />
                     <p className="bride-name">~ Fina & Taufiq ~</p>
                     <p className="desc-1">
-                      Kami ingin keluarga dan sahabat semua menjadi bagian di hari istimewa
-                      kami 😇
+                      Kami ingin keluarga dan sahabat semua menjadi
+                      bagian di hari istimewa kami 😇
                     </p>
                   </div>
                 </div>
               </div>
               <img
                 className="img-1"
-                src={require("../../images/template-1/type-4.png").default}
+                src={
+                  require('../../images/template-2/flower-1.png')
+                    .default
+                }
                 alt="template-1 type-4"
               />
               <img
                 className="img-2"
-                src={require("../../images/template-1/type-5.png").default}
+                src={
+                  require('../../images/template-2/flower-2.png')
+                    .default
+                }
                 alt="template-1 type-5"
               />
             </div>
@@ -101,33 +114,50 @@ export default function Ryan() {
                   data-animate-delay="100"
                 >
                   <div className="col-md-12 content-center">
-                    <p className="text-4">بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ</p>
-                    <p className="text-3">السَّلاَمُ عَلَيْكُمْ وَرَحْمَةُ اللهِ وَبَرَكَاتُهُ</p><br /><br />
+                    <p className="text-4">
+                      بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ
+                    </p>
+                    <p className="text-3">
+                      السَّلاَمُ عَلَيْكُمْ وَرَحْمَةُ اللهِ
+                      وَبَرَكَاتُهُ
+                    </p>
+                    <br />
+                    <br />
                     <p className="desc-1">
-                      Maha suci Allah yang telah menciptakan makhluk-Nya
-                      berpasang-pasangan. Dengan memohon Rahmat dan Ridho Allah
-                      SWT, kami bermaksud menyelenggarakan Pernikahan
-                      Putra-Putri Kami:
+                      Maha suci Allah yang telah menciptakan
+                      makhluk-Nya berpasang-pasangan. Dengan memohon
+                      Rahmat dan Ridho Allah SWT, kami bermaksud
+                      menyelenggarakan Pernikahan Putra-Putri Kami:
                     </p>
                     <p className="text-male">
                       Fina Nurjati, S.T
                       <br />
                       <span>"Fina"</span>
                       <br />
-                      <span>Putri ke 3 dari Bapak Budiono & Ibu Rita Kumala</span>
+                      <span>
+                        Putri ke 3 dari Bapak Budiono & Ibu Rita
+                        Kumala
+                      </span>
                     </p>
                     <p className="and">&</p>
                     <p className="text-female">
-                      Taufiq Fathurrizza, S.E<br />
-                      <span>"Taufiq"</span><br />
-                      <span>Putra ke 1 dari Bapak Nuryadin & Ibu Mutingah</span>
+                      Taufiq Fathurrizza, S.E
+                      <br />
+                      <span>"Taufiq"</span>
+                      <br />
+                      <span>
+                        Putra ke 1 dari Bapak Nuryadin & Ibu Mutingah
+                      </span>
                     </p>
                   </div>
                 </div>
               </div>
               <img
                 className="img-1"
-                src={require("../../images/template-1/type-3.png").default}
+                src={
+                  require('../../images/template-3/flower-5.png')
+                    .default
+                }
                 alt="template-1 type-3"
               />
             </div>
@@ -149,86 +179,63 @@ export default function Ryan() {
                     <p className="text-2">Acara Pernikahan</p>
                     <div className="col-md-6">
                       <div className="row box-schedule">
-                        {query.get("type") !== null && ["akad", "all", "spec"].includes(
-                          query.get("type").toLowerCase()
-                        ) && (
-                          <div
-                            className={
-                              query.get("type").toLowerCase() === "akad"
-                                ? "col-md-12"
-                                : "col-md-6"
-                            }
-                          >
-                            <h4 className="schedule-text">AKAD</h4>
-                            <p>
-                              <i className="far fa-calendar-alt"></i> 18 Desember 2022<br />
-                              <i className="far fa-clock"></i> 09:00 WIB
-                              {/* <i className="fab fa-instagram"></i> <b>LIVE AKAD di <a href="https://www.instagram.com/ryanpace11/" target="_blank" rel="noreferrer">@ryanpace11</a></b> */}
-                            </p>
-                            <h5>Kediaman Keluarga Bapak Budiono</h5>
-                            <p className="place-address">
-                              JL. PONDOK UNGU PERMAI BLOK D 16/16 RT 004/RW 013, KEL. KALIABANG TENGAH, KEC. BEKASI UTARA, KOTA BEKASI, 17125
-                            </p>
-                          </div>
-                        )}
-
-                        {query.get("type") !== null && ["resepsi", "all"].includes(
-                          query.get("type").toLowerCase()
-                        ) && (
-                          <div
-                            className={
-                              query.get("type").toLowerCase() === "resepsi"
-                                ? "col-md-12"
-                                : "col-md-6"
-                            }
-                          >
-                            <h4 className="schedule-text">RESEPSI</h4>
-                            <p>
-                              <i className="far fa-calendar-alt"></i> 18 Desember 2022 <br />
-                              <i className="far fa-clock"></i> 11:00 WIB 
-                            </p>
-                            <h5>Kediaman Keluarga Bapak Budiono</h5>
-                            <p className="place-address">
-                              JL. PONDOK UNGU PERMAI BLOK D 16/16 RT 004/RW 013, KEL. KALIABANG TENGAH, KEC. BEKASI UTARA, KOTA BEKASI, 17125
-                            </p>
-                          </div>
-                        )}
-
-                        {query.get("type") !== null && ["spec", "mantu"].includes(
-                          query.get("type").toLowerCase()
-                        ) && (
-                          <div
-                            className={["mantu"].includes(query.get("type").toLowerCase()) ? "col-md-12" : "col-md-6"}
-                          >
-                            <h4 className="schedule-text">NGUNDUH MANTU</h4>
-                            <p>
-                              <i className="far fa-calendar-alt"></i> 14 Mei 2022 <br />
-                              <i className="far fa-clock"></i> 12:30 WIT - Selesai 
-                            </p>
-                            <h5>Kediaman Bapak Nasiman dan Ibu Iriani Rahanyamtel</h5>
-                            <p className="place-address">
-                              Jl. Enggros Kampkey Abepura, lampu merah kampkey naik keatas belok kiri masuk terus ke dalam rumah pagar steinless
-                            </p>
-                          </div>
-                        )}
+                        <div className="col-md-6">
+                          <h4 className="schedule-text">AKAD</h4>
+                          <p>
+                            <i className="far fa-calendar-alt"></i> 18
+                            Desember 2022
+                            <br />
+                            <i className="far fa-clock"></i> 09:00 WIB
+                            {/* <i className="fab fa-instagram"></i> <b>LIVE AKAD di <a href="https://www.instagram.com/ryanpace11/" target="_blank" rel="noreferrer">@ryanpace11</a></b> */}
+                          </p>
+                          <h5>Kediaman Keluarga Bapak Budiono</h5>
+                          <p className="place-address">
+                            JL. PONDOK UNGU PERMAI BLOK D 16/16 RT
+                            004/RW 013, KEL. KALIABANG TENGAH, KEC.
+                            BEKASI UTARA, KOTA BEKASI, 17125
+                          </p>
+                        </div>
+                        <div className="col-md-6">
+                          <h4 className="schedule-text">RESEPSI</h4>
+                          <p>
+                            <i className="far fa-calendar-alt"></i> 18
+                            Desember 2022 <br />
+                            <i className="far fa-clock"></i> 11:00 WIB
+                          </p>
+                          <h5>Kediaman Keluarga Bapak Budiono</h5>
+                          <p className="place-address">
+                            JL. PONDOK UNGU PERMAI BLOK D 16/16 RT
+                            004/RW 013, KEL. KALIABANG TENGAH, KEC.
+                            BEKASI UTARA, KOTA BEKASI, 17125
+                          </p>
+                        </div>
                       </div>
                     </div>
                     <p className="place-address">
-                      Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan do'a restu kepada kedua mempelai <br />
-                      Atas kehadirannya dan doa restunya kami ucapkan terima kasih
+                      Merupakan suatu kehormatan dan kebahagiaan bagi
+                      kami apabila Bapak/Ibu/Saudara/i berkenan hadir
+                      untuk memberikan do'a restu kepada kedua
+                      mempelai <br />
+                      Atas kehadirannya dan doa restunya kami ucapkan
+                      terima kasih
                     </p>
-                    <p className="text-3">وَالسَّلاَمُ عَلَيْكُمْ وَرَحْمَةُ اللهِ وَبَرَكَاتُهُ</p>
+                    <p className="text-3">
+                      وَالسَّلاَمُ عَلَيْكُمْ وَرَحْمَةُ اللهِ
+                      وَبَرَكَاتُهُ
+                    </p>
                     <div
                       className="col-md-6"
                       style={{
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        flexDirection: "column",
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        flexDirection: 'column',
                       }}
                     >
                       <CountDown
-                        date={new Date("12/18/2022 09:00:00").toISOString()}
+                        date={new Date(
+                          '12/18/2022 09:00:00',
+                        ).toISOString()}
                       />
                     </div>
                   </div>
@@ -236,7 +243,10 @@ export default function Ryan() {
               </div>
               <img
                 className="img-1"
-                src={require("../../images/template-1/type-1.png").default}
+                src={
+                  require('../../images/template-2/flower-3.png')
+                    .default
+                }
                 alt=""
               />
             </div>
@@ -261,7 +271,7 @@ export default function Ryan() {
                         <iframe
                           title="maps-layout"
                           id="gmap_canvas"
-                          src="https://maps.google.com/maps?q=Masjid+Agung+Al+Aqsha+Jl.+Raya+Sentani,+Sentani+Kota,+Sentani+Sentani+Kota+Kec.+Sentani,+Kabupaten+Jayapura,+Papua+99359&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                          src="https://maps.google.com/maps?q=Ria+Hari,+Kaliabang+Tengah,+Kec.+Bekasi+Utara,+Kota+Bks,+Jawa+Barat&t=&z=13&ie=UTF8&iwloc=&output=embed"
                           frameBorder="0"
                           scrolling="no"
                           marginHeight="0"
@@ -291,13 +301,20 @@ export default function Ryan() {
                     <p className="text-2">Gallery Photo</p>
                     <div className="gallery-photo">
                       <img
-                        src={require("../../images/fina/fina.jpeg").default}
+                        src={
+                          require('../../images/fina/fina-1.jpg')
+                            .default
+                        }
                         alt=""
                       />
                     </div>
+                    <br />
                     <div className="gallery-photo">
                       <img
-                        src={require("../../images/fina/taufiq.jpeg").default}
+                        src={
+                          require('../../images/fina/fina-2.jpg')
+                            .default
+                        }
                         alt=""
                       />
                     </div>
@@ -306,12 +323,18 @@ export default function Ryan() {
               </div>
               <img
                 className="img-1"
-                src={require("../../images/template-1/type-5.png").default}
+                src={
+                  require('../../images/template-2/flower-1.png')
+                    .default
+                }
                 alt=""
               />
               <img
                 className="img-2"
-                src={require("../../images/template-1/type-5.png").default}
+                src={
+                  require('../../images/template-2/flower-2.png')
+                    .default
+                }
                 alt=""
               />
             </div>
@@ -341,7 +364,7 @@ export default function Ryan() {
           </div>
         </div>
       </section>
-      {/* <section id="part-7">
+      <section id="part-7">
         <div className="container-fluid">
           <div className="row">
             <div className="col-md-12 row-7">
@@ -361,23 +384,16 @@ export default function Ryan() {
                     <div className="row content-center">
                       <div className="row m-20">
                         <Card
-                          name="M IRIANSYAH PRATAMA"
-                          number="0822 4808 0870"
-                          type="gopay"
-                        />
-                      </div>
-                      <div className="row m-20">
-                        <Card
-                          name="M IRIANSYAH PRATAMA"
-                          number="54 9046 6896"
-                          type="bca"
-                        />
-                      </div>
-                      <div className="row m-20">
-                        <Card
-                          name="SRI FAJAR RIANTRI ALVANI"
-                          number="15400 1158 1174"
+                          name="TAUFIQ FATHURRIZZA"
+                          number="121 000 781 6600"
                           type="mandiri"
+                        />
+                      </div>
+                      <div className="row m-20">
+                        <Card
+                          name="FINA NURJATI"
+                          number="877 065 0021"
+                          type="bca"
                         />
                       </div>
                     </div>
@@ -392,12 +408,12 @@ export default function Ryan() {
             </div>
           </div>
         </div>
-      </section> */}
+      </section>
       <Copyright />
       <Modal show={isModal} onHide={() => setIsModal(false)}>
         <img
-          style={{ width: "100%", height: "100%" }}
-          src={require("../../images/covid-protocol.jpg").default}
+          style={{ width: '100%', height: '100%' }}
+          src={require('../../images/covid-protocol.jpg').default}
           alt=""
         />
       </Modal>
@@ -419,15 +435,16 @@ export default function Ryan() {
           .special-to {
             display: inline;
             font-size: 18px;
-            border-top: 1px solid #000;
-            border-bottom: 1px solid #000;
+            border-top: 1px solid #2f3640;
+            border-bottom: 1px solid #2f3640;
             margin: 0;
             padding: 5px 0;
+            color: #2f3640;
           }
 
           /* part 1 and row 1 */
           #part-1, #part-3, #part-5, #part-7 {
-            background-color: #dfddd1;
+            background-color: #ede0dd;
           }
           .row-1 {
             position: relative;
@@ -435,7 +452,7 @@ export default function Ryan() {
           }
           .row-1 .border {
             border-radius: 20px;
-            border: 3px double #777777 !important;
+            border: 2px dashed #777777 !important;
             padding: 10px;
           }
           .row-1 .img-1 {
@@ -458,12 +475,12 @@ export default function Ryan() {
           }
           .row-2 .border2 {
             border-radius: 20px;
-            border: 3px double #d3cba7 !important;
+            border: 2px dashed #d3cba7 !important;
             padding: 20px 150px;
           }
           .row-2 .img-1 {
             position: absolute;
-            right: 20px;
+            right: 15px;
             bottom: 0;
             width: 350px;
           }
@@ -481,7 +498,7 @@ export default function Ryan() {
           }
           .row-3 div.border {
             border-radius: 20px;
-            border: 3px double #777777 !important;
+            border: 2px dashed #777777 !important;
             padding: 150px 20px;
           }
           .row-3 .img-1 {
@@ -518,7 +535,7 @@ export default function Ryan() {
           }
           .row-4 .border2 {
             border-radius: 20px;
-            border: 3px double #d3cba7 !important;
+            border: 2px dashed #d3cba7 !important;
             padding: 20px 150px;
           }
           .mapouter {
@@ -541,7 +558,7 @@ export default function Ryan() {
           }
           .row-5 .border {
             border-radius: 20px;
-            border: 3px double #777777 !important;
+            border: 2px dashed #777777 !important;
             padding: 10px;
           }
           .row-5 .img-1 {
@@ -569,7 +586,7 @@ export default function Ryan() {
           }
           .row-6 .border2 {
             border-radius: 20px;
-            border: 3px double #d3cba7 !important;
+            border: 2px dashed #d3cba7 !important;
             padding: 20px 150px;
           }
           .box-comment {
@@ -620,7 +637,7 @@ export default function Ryan() {
           }
           .row-7 .border {
             border-radius: 20px;
-            border: 3px double #777777 !important;
+            border: 2px dashed #777777 !important;
             padding: 10px;
           }
           .row-7 .img-1 {
@@ -968,10 +985,10 @@ export default function Ryan() {
               padding: 10px;
             }
             .row-5 .img-1 {
-              width: 70px;
+              width: 150px;
             }
             .row-5 .img-2 {
-              width: 70px;
+              width: 100px;
             }
             .gallery-photo img {
               width: 250px
@@ -1071,5 +1088,5 @@ export default function Ryan() {
         `}
       </style>
     </React.Fragment>
-  );
+  )
 }
