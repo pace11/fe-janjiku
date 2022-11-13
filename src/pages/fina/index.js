@@ -7,7 +7,7 @@ import CoverInvitation from './cover'
 import PlayButton from './play-button'
 import Copyright from './copyright'
 import { useQuery } from '../../utils'
-import audio from '../../sound/ada_untukmu.mp3'
+import audio from '../../sound/perfect_ed_sheeran.mp3'
 
 export default function Ryan() {
   const query = useQuery()
@@ -19,7 +19,7 @@ export default function Ryan() {
   })
 
   const CloseCover = () => {
-    // music.prepare.play();
+    music.prepare.play();
     window.scrollTo(0, 0)
     setMusic({
       ...music,
@@ -33,7 +33,7 @@ export default function Ryan() {
 
   const HandlePausedMusic = (params) => {
     if (params) {
-      // music.prepare.pause();
+      music.prepare.pause();
       setMusic({
         ...music,
         playing: false,
