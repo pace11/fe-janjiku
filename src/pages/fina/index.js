@@ -200,7 +200,7 @@ export default function Ryan() {
                           <p>
                             <i className="far fa-calendar-alt"></i> 18
                             Desember 2022 <br />
-                            <i className="far fa-clock"></i> 11:00 WIB
+                            <i className="far fa-clock"></i> 11:00 - 17:00 WIB
                           </p>
                           <h5>Kediaman Keluarga Bapak Budiono</h5>
                           <p className="place-address">
