@@ -43,7 +43,7 @@ export default function Cover({ show, to, onHide }) {
                   require('../../images/fina/fina-1-front.jpg')
                     .default
                 });
-                background-color: red;
+                background-color: #fff;
                 background-position: center;
                 background-repeat: no-repeat;
                 background-size: cover;
