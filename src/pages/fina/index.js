@@ -7,7 +7,7 @@ import CoverInvitation from './cover'
 import PlayButton from './play-button'
 import Copyright from './copyright'
 import { useQuery } from '../../utils'
-import audio from '../../sound/perfect_ed_sheeran.mp3'
+import audio from '../../sound/raef_you_are_the_one.m4a'
 
 export default function Ryan() {
   const query = useQuery()
@@ -135,7 +135,7 @@ export default function Ryan() {
                       <span>"Fina"</span>
                       <br />
                       <span>
-                        Putri ke 3 dari Bapak Budiono & Ibu Rita
+                        Putri bungsu dari Bapak Budiono & Ibu Rita
                         Kumala
                       </span>
                     </p>
@@ -146,7 +146,7 @@ export default function Ryan() {
                       <span>"Taufiq"</span>
                       <br />
                       <span>
-                        Putra ke 1 dari Bapak Nuryadin & Ibu Mutingah
+                        Putra sulung dari Bapak Nuryadin & Ibu Mutingah
                       </span>
                     </p>
                   </div>
@@ -670,7 +670,7 @@ export default function Ryan() {
             padding: 0;
           }
           p.bride-name {
-            font-family: Great Vibes;
+            font-family: Marck Script;
             font-size: 40px;
             color: #000;
             margin: 0;
@@ -684,7 +684,7 @@ export default function Ryan() {
             padding: 0;
           }
           p.text-male {
-            font-family: Great Vibes;
+            font-family: Marck Script;
             font-size: 35px;
             font-weight: 600;
             text-align: center;
@@ -703,7 +703,7 @@ export default function Ryan() {
             color: #d65467;
           }
           p.text-female {
-            font-family: Great Vibes;
+            font-family: Marck Script;
             font-size: 35px;
             font-weight: 600;
             text-align: center;
