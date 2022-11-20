@@ -42,7 +42,7 @@ export default function CommentSection() {
 
   useEffect(() => {
     if (data?.id) {
-      postGreeting([data]).then((res) => {
+      postGreeting({ path: "inbox", payload: [data] }).then((res) => {
         setIsLoading(false)
         setGreetings(res.sort((a, b) => new Date(b.created_at) - new Date(a.created_at)))
         ClearForm()
@@ -51,7 +51,7 @@ export default function CommentSection() {
   }, [data])
   
   useEffect(() => {
-    getListGreetings()
+    getListGreetings({ path: "inbox" })
       .then((res) => {
         setGreetings(res.sort((a, b) => new Date(b.created_at) - new Date(a.created_at)))
       })

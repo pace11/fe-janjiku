@@ -6,7 +6,6 @@ export default function Paket1() {
     <div className="container-home">
       <section className="background-image p-b-100">
         <div className="container">
-          <input value="test" />
           <div className="row">
             <div className="col-md-12 col-home-f1">
               <div

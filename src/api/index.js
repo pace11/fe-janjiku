@@ -1,11 +1,11 @@
 import Axios from 'axios'
 import { messageTelegram } from '../utils'
 
-export const getListGreetings = async () => {
+export const getListGreetings = async ({ path }) => {
   try {
     const { data } = await Axios({
       method: 'GET',
-      url: `${process.env.REACT_APP_URL_STEIN}/inbox_fina`,
+      url: `${process.env.REACT_APP_URL_STEIN}/${path}`,
     })
     return data
   } catch (error) {
@@ -28,18 +28,18 @@ export const getInvoiceById = async (params) => {
   }
 }
 
-export const postGreeting = async (params) => {
+export const postGreeting = async ({ path, payload }) => {
   try {
     let response
     const { status } = await Axios({
       method: 'POST',
-      url: `${process.env.REACT_APP_URL_STEIN}/inbox_fina`,
-      data: JSON.stringify(params),
+      url: `${process.env.REACT_APP_URL_STEIN}/${path}`,
+      data: JSON.stringify(payload),
     })
     if (status === 200) {
       const { data } = await Axios({
         method: 'GET',
-        url: `${process.env.REACT_APP_URL_STEIN}/inbox_fina`,
+        url: `${process.env.REACT_APP_URL_STEIN}/${path}`,
       })
       response = data
     }
