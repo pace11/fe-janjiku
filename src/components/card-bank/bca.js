@@ -1,6 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { Tooltip } from 'reactstrap'
 
 export default function Bca(props) {
+  const [isOpen, setOpen] = useState(false)
+
+  const handleClickCopied = (show, value) => {
+    setOpen(show)
+    navigator.clipboard.writeText(value.replace(/\s/g, ''))
+    setTimeout(() => {
+      setOpen(false)
+    }, 1000)
+  }
+
   return (
     <div className="card-bca">
       <img
@@ -20,13 +31,31 @@ export default function Bca(props) {
       />
       <div className="card-name">
         <p className="name">{props.name}</p>
-        <p className="number">{props.number}</p>
+        <p className="number">
+          {props.number}{' '}
+          <button
+            id="tooltipBca"
+            className="btn btn-xs btn-secondary"
+            onClick={() => handleClickCopied(true, props.number)}
+          >
+            <i className="fas fa-copy fa-1x"></i>
+          </button>
+        </p>
+        <Tooltip
+          delay={{ show: 500, hide: 0 }}
+          isOpen={isOpen}
+          placement="bottom"
+          target="tooltipBca"
+        >
+          disalin
+        </Tooltip>
       </div>
       <div className="siluet-1"></div>
       <div className="siluet-2"></div>
       <style>
         {`
           .card-bca {
+            display: flex;
             position: relative;
             width: 300px;
             height: 190px;
@@ -67,6 +96,7 @@ export default function Bca(props) {
             padding: 0 20px;
             box-sizing: border-box;
             text-align: left;
+            z-index: 999;
           }
 
           .card-bca .card-name .name,

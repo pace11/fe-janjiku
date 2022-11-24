@@ -1,6 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { Tooltip } from 'reactstrap'
 
 export default function Gopay(props) {
+  const [isOpen, setOpen] = useState(false)
+
+  const handleClickCopied = (show, value) => {
+    setOpen(show)
+    navigator.clipboard.writeText(value.replace(/\s/g, ''))
+    setTimeout(() => {
+      setOpen(false)
+    }, 1000)
+  }
   return (
     <div className="card-gopay">
       <img
@@ -15,7 +25,24 @@ export default function Gopay(props) {
       />
       <div className="card-name">
         <p className="name">{props.name}</p>
-        <p className="number">{props.number}</p>
+        <p className="number">
+          {props.number}{' '}
+          <button
+            id="tooltipGopay"
+            className="btn btn-xs btn-secondary"
+            onClick={() => handleClickCopied(true, props.number)}
+          >
+            <i className="fas fa-copy fa-1x"></i>
+          </button>
+        </p>
+        <Tooltip
+          delay={{ show: 500, hide: 0 }}
+          isOpen={isOpen}
+          placement="bottom"
+          target="tooltipGopay"
+        >
+          disalin
+        </Tooltip>
       </div>
       <div className="siluet-1"></div>
       <div className="siluet-2"></div>
@@ -55,6 +82,7 @@ export default function Gopay(props) {
             padding: 0 20px;
             box-sizing: border-box;
             text-align: left;
+            z-index: 999;
           }
 
           .card-gopay .card-name .name,

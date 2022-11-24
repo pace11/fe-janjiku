@@ -40,13 +40,13 @@ export default function Cover({ show, to, onHide }) {
                 bottom: 0;
                 z-index: 999;
                 background-image: url(${
-                  require('../../images/fina/fina-1-front.jpg')
+                  require('../../images/fina/fina-front-desktop.jpg')
                     .default
                 });
-                background-color: #fff;
+                background-color: #efe1de;
                 background-position: center;
                 background-repeat: no-repeat;
-                background-size: cover;
+                background-size: contain;
                 text-align: center;
             }
             .cover.show {
@@ -62,6 +62,16 @@ export default function Cover({ show, to, onHide }) {
               left: 0;
               right: 0;
               bottom: 100px;
+            }
+
+            @media(max-width: 425px) { 
+              .cover {
+                background-image: url(${
+                  require('../../images/fina/fina-front-mobile.jpg')
+                    .default
+                });
+                background-size: cover;
+              }
             }
 
             ${

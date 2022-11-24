@@ -186,7 +186,8 @@ export default function Ryan() {
                             Desember 2022
                             <br />
                             <i className="far fa-clock"></i> 09:00 WIB
-                            {/* <i className="fab fa-instagram"></i> <b>LIVE AKAD di <a href="https://www.instagram.com/ryanpace11/" target="_blank" rel="noreferrer">@ryanpace11</a></b> */}
+                            <br />
+                            <i className="fab fa-instagram"></i> <b>LIVE STREAMING di <a href="https://www.instagram.com/finanurjati/" target="_blank" rel="noreferrer">@finanurjati</a></b>
                           </p>
                           <h5>Kediaman Keluarga Bapak Budiono</h5>
                           <p className="place-address">
