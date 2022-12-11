@@ -1,13 +1,9 @@
 {
   "files": {
     "main.js": "/static/js/main.bc26dac8.chunk.js",
-    "main.js.map": "/static/js/main.bc26dac8.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.84087b73.js",
-    "runtime-main.js.map": "/static/js/runtime-main.84087b73.js.map",
     "static/js/2.3cfc919a.chunk.js": "/static/js/2.3cfc919a.chunk.js",
-    "static/js/2.3cfc919a.chunk.js.map": "/static/js/2.3cfc919a.chunk.js.map",
     "static/js/3.97c210eb.chunk.js": "/static/js/3.97c210eb.chunk.js",
-    "static/js/3.97c210eb.chunk.js.map": "/static/js/3.97c210eb.chunk.js.map",
     "index.html": "/index.html",
     "static/js/2.3cfc919a.chunk.js.LICENSE.txt": "/static/js/2.3cfc919a.chunk.js.LICENSE.txt",
     "static/media/ada_untukmu.dbe5a05a.mp3": "/static/media/ada_untukmu.dbe5a05a.mp3",
