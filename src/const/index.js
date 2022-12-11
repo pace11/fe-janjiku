@@ -23,6 +23,13 @@ module.exports = {
       image: require('../images/ex/template-1.jpg').default,
       imagePage: require('../images/ex/template-1-p.png').default,
     },
+    {
+      id: 'P2-003',
+      title: 'Template 3',
+      link: 'template-3',
+      image: require('../images/ex/template-1.jpg').default,
+      imagePage: require('../images/ex/template-1-p.png').default,
+    },
   ],
   status: {
     0: 'Menunggu konfirmasi',

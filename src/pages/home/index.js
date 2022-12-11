@@ -18,8 +18,7 @@ export default function Home() {
                   alt=""
                 />
                 <p className="lead">
-                  Kreasikan Undangan Nikahan anda dengan template yang tersedia
-                  disini
+                  Kreasikan Undangan Digital keinginan anda disini
                 </p>
               </div>
             </div>
