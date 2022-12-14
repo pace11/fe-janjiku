@@ -1,9 +1,10 @@
 module.exports = {
-  package_one: [
+  katalog: [
     {
       id: 'P1-001',
       title: 'Template 1',
       link: 'template-1',
+      category: 'Nikahan',
       image: require('../images/ex/template-1.jpg').default,
       imagePage: require('../images/ex/template-1-p.png').default,
     },
@@ -11,24 +12,9 @@ module.exports = {
       id: 'P1-002',
       title: 'Template 2',
       link: 'template-2',
-      image: require('../images/ex/template-1.jpg').default,
-      imagePage: require('../images/ex/template-1-p.png').default,
-    },
-  ],
-  package_two: [
-    {
-      id: 'P2-001',
-      title: 'Template 1',
-      link: 'template-1',
-      image: require('../images/ex/template-1.jpg').default,
-      imagePage: require('../images/ex/template-1-p.png').default,
-    },
-    {
-      id: 'P2-003',
-      title: 'Template 3',
-      link: 'template-3',
-      image: require('../images/ex/template-1.jpg').default,
-      imagePage: require('../images/ex/template-1-p.png').default,
+      category: 'Ulang Tahun Anak',
+      image: require('../images/ex/birthday-kids-1.png').default,
+      imagePage: require('../images/ex/birthday-kids-1.png').default,
     },
   ],
   status: {

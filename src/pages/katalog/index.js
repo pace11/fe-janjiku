@@ -1,7 +1,30 @@
-import React from 'react'
-import { package_one } from '../../const'
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import React, { useEffect, useState } from 'react'
+import { useHistory } from 'react-router-dom'
+import { useQuery } from '../../utils'
+import { katalog } from '../../const'
 
-export default function Paket1() {
+export default function Katalog() {
+  let history = useHistory()
+  const query = useQuery()
+  const [listCatalog, setCatalog] = useState()
+
+  useEffect(() => {
+    if (query.get('filter') === 'All') {
+      setCatalog(katalog)
+    } else {
+      setCatalog(
+        katalog.filter(
+          (item) => item.category === query.get('filter'),
+        ),
+      )
+    }
+  }, [query])
+
+  useEffect(() => {
+    setCatalog(katalog)
+  }, [])
+
   return (
     <div className="container-home">
       <section className="background-image p-b-100">
@@ -29,30 +52,65 @@ export default function Paket1() {
       </section>
       <section id="pricing" className="background-grey">
         <div
-          class="row"
+          className="row"
           style={{
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
           }}
         >
-          <div class="col-lg-4 col-md-4 col-md-12">
-            <h3 className="text-center m-b-35">Paket 1</h3>
+          <div className="col-lg-12 col-xs-12 col-sm-12 col-md-12">
+            <h3 className="text-center m-b-35">Katalog</h3>
+            <div className="grid-filter text-center mt-5 mb-5">
+              <span
+                className={`catalog-list ${
+                  !query.get('filter') ||
+                  query.get('filter') === 'All'
+                    ? 'active'
+                    : ''
+                }`}
+                onClick={() => {
+                  history.push({
+                    pathname: '/katalog',
+                  })
+                  history.go(0)
+                }}
+              >
+                Semua
+              </span>
+              {Array.from(
+                new Set(katalog.map((item) => item.category)),
+              ).map((item) => (
+                <span
+                  key={String(item)}
+                  className={`catalog-list ${
+                    query.get('filter') === item ? 'active' : ''
+                  }`}
+                  onClick={() =>
+                    history.push({
+                      pathname: '/katalog',
+                      search: `?filter=${item}`,
+                    })
+                  }
+                >
+                  {item}
+                </span>
+              ))}
+            </div>
             <div
               id="portfolio"
               className="grid-layout grid-loaded"
-              dataMargin="0"
               style={{
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
               }}
             >
-              {package_one &&
-                package_one.map((item) => (
+              {listCatalog &&
+                listCatalog.map((item) => (
                   <React.Fragment key={item.id}>
                     <div
-                      class="portfolio-item img-zoom ct-photography ct-marketing ct-media"
+                      className="portfolio-item img-zoom ct-photography ct-marketing ct-media col-lg-3 col-md-3 col-xs-12 col-sm-12"
                       style={{
                         padding: '0px',
                         position: 'absolute',
@@ -60,22 +118,22 @@ export default function Paket1() {
                         top: '0px',
                       }}
                     >
-                      <div class="portfolio-item-wrap">
-                        <div class="portfolio-image">
+                      <div className="portfolio-item-wrap">
+                        <div className="portfolio-image">
                           <a href="#eta">
                             <img src={item.imagePage} alt="" />
                           </a>
                         </div>
-                        <div class="portfolio-description">
+                        <div className="portfolio-description">
                           <a
                             title={item.title}
                             data-lightbox="image"
                             href={item.image}
                           >
-                            <i class="icon-maximize"></i>
+                            <i className="icon-maximize"></i>
                           </a>
-                          <a href={`paket-1/${item.link}/preview`}>
-                            <i class="icon-link"></i>
+                          <a href={`${item.link}/preview`}>
+                            <i className="icon-link"></i>
                           </a>
                         </div>
                       </div>
@@ -115,6 +173,20 @@ export default function Paket1() {
           }
           .plan-list ul li.inactive {
             color: #bdc3c7;
+          }
+          .catalog-list {
+            font-size: 11pt;
+            font-weight: 500;
+            background: #e5e5e5;
+            padding: 5px;
+            margin: 5px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.6s ease;
+          }
+          .catalog-list.active {
+            background: #DF697A;
+            color: #fff;
           }
         `}
       </style>

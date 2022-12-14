@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function PlayButton() {
+export default function Copyright() {
   return (
     <div className="copyright">
       <p className="text">

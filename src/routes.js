@@ -5,12 +5,11 @@ import NoLayout from './layout/no-layout'
 // Pages
 import Home from './pages/home'
 import CekStatus from './pages/cek-status'
-import Pakcage1 from './pages/package/package-1'
-import Pakcage2 from './pages/package/package-2'
 import Template from './pages/template'
 import Ryan from './pages/ryan'
 import Fina from './pages/fina'
 import NotFound from './pages/not-found'
+import Katalog from './pages/katalog'
 
 const Routes = [
   {
@@ -26,19 +25,13 @@ const Routes = [
     component: CekStatus,
   },
   {
-    path: '/paket-1',
+    path: '/katalog',
     exact: true,
     layout: Layout,
-    component: Pakcage1,
+    component: Katalog,
   },
   {
-    path: '/paket-2',
-    exact: true,
-    layout: Layout,
-    component: Pakcage2,
-  },
-  {
-    path: '/:packages/:template/preview',
+    path: '/:template/preview',
     layout: Layout,
     component: Template,
   },
