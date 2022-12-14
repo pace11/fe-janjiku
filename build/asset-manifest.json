@@ -1,13 +1,14 @@
 {
   "files": {
-    "main.js": "/static/js/main.bc26dac8.chunk.js",
-    "runtime-main.js": "/static/js/runtime-main.84087b73.js",
-    "static/js/2.3cfc919a.chunk.js": "/static/js/2.3cfc919a.chunk.js",
-    "static/js/3.97c210eb.chunk.js": "/static/js/3.97c210eb.chunk.js",
+    "main.js": "/static/js/main.456cc72e.chunk.js",
+    "runtime-main.js": "/static/js/runtime-main.fd89381a.js",
+    "static/js/2.81fbf38c.chunk.js": "/static/js/2.81fbf38c.chunk.js",
+    "static/js/3.8c64d4f5.chunk.js": "/static/js/3.8c64d4f5.chunk.js",
     "index.html": "/index.html",
-    "static/js/2.3cfc919a.chunk.js.LICENSE.txt": "/static/js/2.3cfc919a.chunk.js.LICENSE.txt",
+    "static/js/2.81fbf38c.chunk.js.LICENSE.txt": "/static/js/2.81fbf38c.chunk.js.LICENSE.txt",
     "static/media/ada_untukmu.dbe5a05a.mp3": "/static/media/ada_untukmu.dbe5a05a.mp3",
     "static/media/bca-logo.png": "/static/media/bca-logo.e36d3bfa.png",
+    "static/media/birthday-kids-1.png": "/static/media/birthday-kids-1.9ac8b284.png",
     "static/media/bri-logo.png": "/static/media/bri-logo.1404981f.png",
     "static/media/chip-logo.png": "/static/media/chip-logo.395f1d22.png",
     "static/media/covid-protocol.jpg": "/static/media/covid-protocol.05d2f040.jpg",
@@ -33,14 +34,15 @@
     "static/media/successfully.gif": "/static/media/successfully.d90b8dad.gif",
     "static/media/template-1-p.png": "/static/media/template-1-p.5dbf983d.png",
     "static/media/template-1.jpg": "/static/media/template-1.29a9460a.jpg",
+    "static/media/template-dino-2.png": "/static/media/template-dino-2.3a946235.png",
     "static/media/type-1.png": "/static/media/type-1.c4095329.png",
     "static/media/type-3.png": "/static/media/type-3.5efe8dfc.png",
     "static/media/type-4.png": "/static/media/type-4.500a99fd.png",
     "static/media/type-5.png": "/static/media/type-5.e7b96941.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.84087b73.js",
-    "static/js/2.3cfc919a.chunk.js",
-    "static/js/main.bc26dac8.chunk.js"
+    "static/js/runtime-main.fd89381a.js",
+    "static/js/2.81fbf38c.chunk.js",
+    "static/js/main.456cc72e.chunk.js"
   ]
 }
