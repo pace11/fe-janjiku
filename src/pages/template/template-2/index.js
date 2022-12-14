@@ -5,7 +5,7 @@ import PlayButton from './play-button'
 import Cover from './cover'
 import Copyright from './copyright'
 import { useQuery } from '../../../utils'
-import audio from '../../../sound/ada_untukmu.mp3'
+import audio from '../../../sound/hbd-song-kids.mp3'
 
 export default function Index() {
   const query = useQuery()
