@@ -32,7 +32,7 @@ export default function Index() {
       </div>
     ),
     customPaging: (i) => (
-      <div style={{ padding: '5px', borderRadius: '10px' }}>
+      <div>
         {menu[i]}
       </div>
     ),
@@ -222,6 +222,8 @@ export default function Index() {
           .slick-dots li div {
             background: #22a6b3;
             color: #fff;
+            padding: 5px; 
+            border-radius: 10px;
           }
           .slick-dots li.slick-active div {
             background: #95afc0;
