@@ -8,6 +8,7 @@ import CekStatus from './pages/cek-status'
 import Template from './pages/template'
 import Ryan from './pages/ryan'
 import Fina from './pages/fina'
+import Rehan from './pages/rehan'
 import NotFound from './pages/not-found'
 import Katalog from './pages/katalog'
 
@@ -44,6 +45,11 @@ const Routes = [
     path: '/fina-dan-taufiq',
     layout: NoLayout,
     component: Fina,
+  },
+  {
+    path: '/afni-dan-rehan',
+    layout: NoLayout,
+    component: Rehan,
   },
   {
     path: '/404',

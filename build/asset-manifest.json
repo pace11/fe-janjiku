@@ -1,11 +1,12 @@
 {
   "files": {
-    "main.js": "/static/js/main.edebc2d5.chunk.js",
-    "runtime-main.js": "/static/js/runtime-main.fd89381a.js",
-    "static/js/2.81fbf38c.chunk.js": "/static/js/2.81fbf38c.chunk.js",
-    "static/js/3.8c64d4f5.chunk.js": "/static/js/3.8c64d4f5.chunk.js",
+    "main.js": "/static/js/main.1876056a.chunk.js",
+    "runtime-main.js": "/static/js/runtime-main.d319b06d.js",
+    "static/js/2.b5a92c74.chunk.js": "/static/js/2.b5a92c74.chunk.js",
+    "static/js/3.33cf715b.chunk.js": "/static/js/3.33cf715b.chunk.js",
     "index.html": "/index.html",
-    "static/js/2.81fbf38c.chunk.js.LICENSE.txt": "/static/js/2.81fbf38c.chunk.js.LICENSE.txt",
+    "static/js/2.b5a92c74.chunk.js.LICENSE.txt": "/static/js/2.b5a92c74.chunk.js.LICENSE.txt",
+    "static/media/Yovie&Nuno_Janji_Suci.97d85e15.mp3": "/static/media/Yovie&Nuno_Janji_Suci.97d85e15.mp3",
     "static/media/ada_untukmu.dbe5a05a.mp3": "/static/media/ada_untukmu.dbe5a05a.mp3",
     "static/media/bca-logo.png": "/static/media/bca-logo.e36d3bfa.png",
     "static/media/birthday-kids-1.png": "/static/media/birthday-kids-1.9ac8b284.png",
@@ -31,6 +32,10 @@
     "static/media/janjiku-id.png": "/static/media/janjiku-id.d33bb5db.png",
     "static/media/mandiri-logo.png": "/static/media/mandiri-logo.4bce7e1b.png",
     "static/media/raef_you_are_the_one.71e64b13.m4a": "/static/media/raef_you_are_the_one.71e64b13.m4a",
+    "static/media/rehan-1.jpg": "/static/media/rehan-1.69ce9f16.jpg",
+    "static/media/rehan-2.jpg": "/static/media/rehan-2.3c16033d.jpg",
+    "static/media/rehan-3.jpg": "/static/media/rehan-3.9782042f.jpg",
+    "static/media/rehan-4.jpg": "/static/media/rehan-4.b4908ee8.jpg",
     "static/media/rings.png": "/static/media/rings.9801be4c.png",
     "static/media/successfully.gif": "/static/media/successfully.d90b8dad.gif",
     "static/media/template-1-p.png": "/static/media/template-1-p.5dbf983d.png",
@@ -42,8 +47,8 @@
     "static/media/type-5.png": "/static/media/type-5.e7b96941.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.fd89381a.js",
-    "static/js/2.81fbf38c.chunk.js",
-    "static/js/main.edebc2d5.chunk.js"
+    "static/js/runtime-main.d319b06d.js",
+    "static/js/2.b5a92c74.chunk.js",
+    "static/js/main.1876056a.chunk.js"
   ]
 }
