@@ -23,7 +23,7 @@ export default function Ryan() {
     window.scrollTo(0, 0)
     setMusic({
       ...music,
-      playing: false,
+      playing: true,
     })
     setShow(false)
     setTimeout(() => {
@@ -307,7 +307,7 @@ export default function Ryan() {
                     <div className="gallery-photo">
                       <img
                         src={
-                          require('../../images/rehan/rehan-3.jpg')
+                          require('../../images/rehan/rehan-5.jpg')
                             .default
                         }
                         alt=""
@@ -317,7 +317,27 @@ export default function Ryan() {
                     <div className="gallery-photo">
                       <img
                         src={
-                          require('../../images/rehan/rehan-4.jpg')
+                          require('../../images/rehan/rehan-6.jpg')
+                            .default
+                        }
+                        alt=""
+                      />
+                    </div>
+                    <br />
+                    <div className="gallery-photo">
+                      <img
+                        src={
+                          require('../../images/rehan/rehan-7.jpg')
+                            .default
+                        }
+                        alt=""
+                      />
+                    </div>
+                    <br />
+                    <div className="gallery-photo">
+                      <img
+                        src={
+                          require('../../images/rehan/rehan-8.jpg')
                             .default
                         }
                         alt=""
